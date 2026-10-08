@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Personal Accident Insurance for Be drivers — Linh Tran</title>
+	<meta name="description" content="Case study: turning a standard annual insurance product into a 25,000 VND/week accumulation habit for Be's gig drivers, with a trust system that holds across payment failures and claim anxiety.">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁︎</text></svg>">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/cs-pa-insurance.css">
+</head>
+<body>
+	<header class="topnav">
+		<a class="topnav__title" href="../index.html">Linh Tran •︎ Product designer + Researcher</a>
+		<nav class="topnav__links" aria-label="Main">
+			<a href="../index.html" aria-current="page">Work</a>
+			<a href="#">Side quests</a>
+			<a href="../index.html#about">About</a>
+			<a href="#">Resume</a>
+		</nav>
+		<span class="topnav__side">☁︎ Linhtranllm</span>
+	</header>
+
+	<main>
+		<!-- ===== Overall ===== -->
+		<section class="wrap cs-overall" aria-labelledby="cs-title">
+			<h1 class="cs-title serif" id="cs-title">Personal Accident Insurance for Be drivers</h1>
+
+			<div class="cs-hero">
+				<img src="../assets/pa-insurance/hero.png" alt="Personal Accident Insurance in the bePartner app: the product overview screen and the weekly benefits illustration screen, framed by a shielded car and a piggy bank of coins" width="1120" height="500">
+			</div>
+
+			<div class="cs-overview">
+				<div class="cs-context">
+					<p class="cs-lead">We changed the large annual fee to a simple 25.000VND weekly payment, supported by a trust system that manages failed payments and driver uncertainty.</p>
+
+					<div class="cs-results">
+						<dl class="cs-achievement">
+							<div class="cs-achievement__row">
+								<dt class="cs-achievement__value">5.11%</dt>
+								<dd class="cs-achievement__label">Purchase conversion rate (CVR)<br>2.5x the original 2% target</dd>
+							</div>
+							<div class="cs-achievement__row">
+								<dt class="cs-achievement__value">98.22%</dt>
+								<dd class="cs-achievement__label">Recurring orders</dd>
+							</div>
+							<div class="cs-achievement__row">
+								<dt class="cs-achievement__value">94.78%</dt>
+								<dd class="cs-achievement__label">Recurring users</dd>
+							</div>
+							<div class="cs-achievement__row">
+								<dt class="cs-achievement__value">113.15M GMV</dt>
+								<dd class="cs-achievement__label">Across 4.379 orders (Q1 2026)</dd>
+							</div>
+						</dl>
+
+						<div class="cs-shipped">
+							<p>Shipped October 2025.</p>
+							<p><mark class="cs-mark">98.22% recurring rate by Q1 2026.</mark></p>
+							<img class="cs-shipped__art" src="../assets/pa-insurance/shipped-podium.png" alt="" width="124" height="72">
+						</div>
+					</div>
+				</div>
+
+				<div class="cs-role">
+					<div class="cs-role__block">
+						<h2 class="cs-role__title">My role</h2>
+						<p>Product Designer - owned this project end-to-end as the sole designer. I handled problem framing, research synthesis, UX flows (discovery, payment, contract management, claim), edge-case design, and shipping QA.</p>
+					</div>
+					<div class="cs-role__block">
+						<h2 class="cs-role__title">Team</h2>
+						<ul class="cs-list">
+							<li><strong>Product:</strong> Ngọc Vũ (PO), Thảo Trần (Sr. PM)</li>
+							<li><strong>Business:</strong> Vi Nguyễn</li>
+							<li><strong>Partners:</strong> MSIG (insurer), Legal, Marketing, Customer Service</li>
+						</ul>
+					</div>
+					<div class="cs-role__block">
+						<h2 class="cs-role__title">Timeline</h2>
+						<ul class="cs-list">
+							<li><strong>Kick-off:</strong> June 2025</li>
+							<li><strong>Phased rollout:</strong> September 19, 2025 (20% of users, ~21K reached)</li>
+							<li><strong>Full rollout:</strong> October 1, 2025 (100%, ~105K reached)</li>
+							<li><strong>Results window: </strong>Q1 2026</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== Content: TOC + body ===== -->
+		<div class="wrap cs-content">
+			<aside class="cs-toc" aria-label="On this page">
+				<p class="cs-toc__heading">On this page</p>
+				<nav>
+					<ol class="cs-toc__items">
+						<li><a href="#real-problem" class="is-active">01  ·  The real problem</a></li>
+						<li><a href="#research">02  ·  Research</a></li>
+						<li><a href="#challenge">03  ·  The challenge</a></li>
+						<li><a href="#decisions">04  ·  The decisions</a></li>
+						<li><a href="#reflection">05  ·  Reflection</a></li>
+						<li><a href="#recognition">06  ·  Recognition</a></li>
+					</ol>
+				</nav>
+				<div class="cs-toc__card">
+					<p class="cs-toc__time">📒 Reading time: 12 minutes</p>
+					<a class="cs-toc__skip" href="#decisions">Skip to <span>decisions →</span></a>
+				</div>
+			</aside>
+
+			<article class="cs-body">
+				<!-- 01. The real problem -->
+				<section class="cs-section cs-section--gap24" id="real-problem" aria-labelledby="h-problem">
+					<header class="cs-heading">
+						<p class="cs-eyebrow">01. The real problem</p>
+						<h2 class="cs-h2 serif" id="h-problem">The real problem wasn't <span class="accent">"making insurance friendly".</span></h2>
+					</header>
+					<p class="cs-p">Initially, the project seemed simple: Be Group sought a new revenue line for Digital Goods, MSIG needed distribution, and drivers required road protection. Personal Accident Insurance aligned all three.</p>
+					<img class="cs-img cs-img--r12" src="../assets/pa-insurance/be-drivers.png" alt="A Be driver in a yellow and blue Be jacket and bunny-ear helmet riding a motorbike with a passenger, emerging from a phone frame" width="800" height="400" loading="lazy">
+					<p class="cs-p">But there was a massive disconnect. Traditional insurance expects salaried buyers with stable cash flow and a tolerance for annual lump-sum payments. <strong class="cs-em">Gig drivers earn day-to-day. They manage their wallets day-to-day.</strong> They learned that long-term financial commitments often cost them. If we sold insurance traditionally - annual purchase, paper claims - they wouldn't buy it. A failed payment or clumsy claim would ruin trust.</p>
+					<div class="cs-hmw">
+						<img src="../assets/pa-insurance/target-icon.png" alt="" width="96" height="96" loading="lazy">
+						<p class="serif">How might we redesign the trust system to better reflect the realities of a gig driver's life, beyond just focusing on<br>UI aesthetics?</p>
+					</div>
+				</section>
+
+				<!-- 02. Research -->
+				<section class="cs-section cs-section--gap16" id="research" aria-labelledby="h-research">
+					<header class="cs-heading">
+						<p class="cs-eyebrow">02. Research</p>
+						<h2 class="cs-h2 serif" id="h-research">The data told one story. <span class="accent">Talking to drivers told another.</span></h2>
+					</header>
+					<div class="cs-stack8">
+						<p class="cs-p">Before sketching anything, I needed to understand one thing I couldn't find in any dashboard:</p>
+						<p class="cs-takeaway">What actually makes these drivers hesitate?</p>
+					</div>
+				</section>
+
+				<!-- Step 1: Competitor research -->
+				<section class="cs-step" aria-labelledby="h-step1">
+					<div class="cs-step__info">
+						<span class="cs-steptag">#Step 1: Competitor research</span>
+						<h3 class="cs-h3" id="h-step1">None of them fit gig workers</h3>
+						<p class="cs-p">Shopee, Momo and IZion24 all sold embedded insurance in Vietnam. The scan showed the gap was structural, not cosmetic.</p>
+					</div>
+
+					<div class="cs-scroll">
+						<div class="cs-competitors">
+							<figure class="cs-competitor">
+								<div class="cs-competitor__label"><img src="../assets/pa-insurance/logo-izion24.png" alt="IZion24" width="53" height="32" loading="lazy"></div>
+								<img class="cs-competitor__screen" src="../assets/pa-insurance/competitor-izion24.png" alt="IZion24 personal accident insurance screen with a 1,000,000đ annual premium" width="200" height="433" loading="lazy">
+							</figure>
+							<figure class="cs-competitor">
+								<div class="cs-competitor__label"><img src="../assets/pa-insurance/logo-momo.png" alt="MoMo" width="34" height="32" loading="lazy"></div>
+								<img class="cs-competitor__screen" src="../assets/pa-insurance/competitor-momo.png" alt="MoMo personal accident insurance purchase screen with benefit tiers and a 225,000đ total" width="200" height="433" loading="lazy">
+							</figure>
+							<figure class="cs-competitor">
+								<div class="cs-competitor__label"><img src="../assets/pa-insurance/logo-shopee.png" alt="Shopee" width="101" height="32" loading="lazy"></div>
+								<img class="cs-competitor__screen" src="../assets/pa-insurance/competitor-shopee.png" alt="Shopee x MSIG personal accident insurance screen with a 12-month term" width="200" height="433" loading="lazy">
+							</figure>
+						</div>
+					</div>
+
+					<div class="cs-scroll cs-matrix-wrap">
+						<table class="cs-matrix">
+							<thead>
+								<tr>
+									<td></td>
+									<th scope="col">IZion24</th>
+									<th scope="col">Momo</th>
+									<th scope="col">Shopee</th>
+									<th scope="col" class="is-ours">Our bet</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">Targets gig workers</th>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td class="is-ours"><img src="../assets/pa-insurance/icon-check-circle.png" alt="Yes" width="24" height="24" loading="lazy"></td>
+								</tr>
+								<tr>
+									<th scope="row">Flexible, non-annual terms</th>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td class="is-ours"><img src="../assets/pa-insurance/icon-check-circle.png" alt="Yes" width="24" height="24" loading="lazy"></td>
+								</tr>
+								<tr>
+									<th scope="row">Owns the claim moment in-app</th>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td><img src="../assets/pa-insurance/icon-close-circle.png" alt="No" width="24" height="24" loading="lazy"></td>
+									<td class="is-ours"><img src="../assets/pa-insurance/icon-check-circle.png" alt="Yes" width="24" height="24" loading="lazy"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="cs-note">
+						<img src="../assets/pa-insurance/icon-be-point.png" alt="" width="44" height="44" loading="lazy">
+						<p>Be became a symbol of hope for gig workers, celebrating their contributions and fostering a community that acknowledges every effort.</p>
+					</div>
+				</section>
+
+				<!-- Step 2: Survey -->
+				<section class="cs-step" aria-labelledby="h-step2">
+					<div class="cs-step__info">
+						<span class="cs-steptag">#Step 2: Run mass survey (n=2.714)</span>
+						<h3 class="cs-h3" id="h-step2">Collaborate with PO and PM to run driver survey</h3>
+						<p class="cs-p">Then we ran a survey with 2.714 active beBike and beCar drivers. The numbers were clear.</p>
+					</div>
+
+					<div class="cs-stats">
+						<div class="cs-stat">
+							<span class="cs-stat__tag cs-stat__tag--indigo">🔵 User demand</span>
+							<div class="cs-stat__info">
+								<p class="cs-stat__value">95.7%</p>
+								<p>Many drivers find insurance important. Even with "very important" at the end, they still chose it intentionally.</p>
+							</div>
+						</div>
+						<div class="cs-stat">
+							<span class="cs-stat__tag cs-stat__tag--red">🔴 Must have</span>
+							<div class="cs-stat__info">
+								<p class="cs-stat__value">90%</p>
+								<p>favor installment payments instead of a single annual payment</p>
+							</div>
+							<div class="cs-split">
+								<div class="cs-split__track" role="img" aria-label="Installments 90%, annual lump-sum 10%"><span style="width: 95.7%"></span></div>
+								<ul class="cs-split__legend">
+									<li><i class="is-dark"></i>Installments: 90%</li>
+									<li><i></i>Annual lump-sum: 10%</li>
+								</ul>
+							</div>
+						</div>
+						<div class="cs-stat">
+							<span class="cs-stat__tag cs-stat__tag--orange">🟠 Need to solve</span>
+							<div class="cs-stat__info">
+								<p class="cs-stat__value">57%</p>
+								<p>stated that the complexity of claims was their primary concern.</p>
+							</div>
+							<div class="cs-bars">
+								<div class="cs-bar"><div class="cs-bar__top"><span>Claim procedure</span><b>57%</b></div><div class="cs-bar__track"><span style="width: 60.5%"></span></div></div>
+								<div class="cs-bar"><div class="cs-bar__top"><span>Benefits clarity</span><b>23.76%</b></div><div class="cs-bar__track"><span class="is-muted" style="width: 25.3%"></span></div></div>
+								<div class="cs-bar"><div class="cs-bar__top"><span>Price</span><b>18.78%</b></div><div class="cs-bar__track"><span class="is-muted" style="width: 20%"></span></div></div>
+							</div>
+							<p class="cs-stat__caption">Top concern when considering insurance</p>
+						</div>
+						<div class="cs-stat">
+							<span class="cs-stat__tag cs-stat__tag--indigo">🔵 User demand</span>
+							<div class="cs-stat__info">
+								<p class="cs-stat__value">52.1%</p>
+								<p>The clarity of the benefits was the key factor in the decision-making process.</p>
+							</div>
+							<div class="cs-bars cs-bars--grow">
+								<div class="cs-bar"><div class="cs-bar__top"><span>Benefits clarity</span><b>52.1%</b></div><div class="cs-bar__track"><span style="width: 55.2%"></span></div></div>
+								<div class="cs-bar"><div class="cs-bar__top"><span>Price</span><b>12%</b></div><div class="cs-bar__track"><span class="is-muted" style="width: 12.7%"></span></div></div>
+							</div>
+							<p class="cs-stat__caption">Deciding factor when buying</p>
+						</div>
+					</div>
+
+					<div class="cs-price">
+						<p>Most-chosen price band for PA Insurance package</p>
+						<strong>300.000VND / year</strong>
+					</div>
+				</section>
+
+				<!-- Step 3: Interviews -->
+				<section class="cs-step" aria-labelledby="h-step3">
+					<div class="cs-step__info">
+						<span class="cs-steptag">#Step 3: User interview (n=15)</span>
+						<h3 class="cs-h3" id="h-step3">Driver interviews at Be hubs</h3>
+						<p class="cs-p">Surveys don't reveal feelings. Data showed a preference for "per-trip" payments, but I needed to know why. I met with 15 drivers face-to-face, and two insights shifted my direction.</p>
+					</div>
+
+					<figure class="cs-photo">
+						<img src="../assets/pa-insurance/driver-interview.png" alt="Group interview in a meeting room: around 15 Be drivers seated at a long table listening to a facilitator" width="494" height="370" loading="lazy">
+						<figcaption><img src="../assets/pa-insurance/icon-pin.png" alt="" width="24" height="24" loading="lazy">Group interview section with 15+ active Be Drivers</figcaption>
+					</figure>
+
+					<div class="cs-findings">
+						<div>
+							<h4>01. Weekly, not per-trip</h4>
+							<p>Drivers liked "per-trip" for flexibility, but payouts are weekly. <strong class="cs-em">Money comes in weekly; bills should go out weekly.</strong></p>
+						</div>
+						<div>
+							<h4>02. Abandonment, not paperwork</h4>
+							<p>Drivers weren't dreading forms. <strong class="cs-em">They were terrified of paying for a promise, and then losing the path back to it when they got hurt.</strong></p>
+						</div>
+					</div>
+
+					<blockquote class="cs-quote">
+						<p class="cs-quote__vi" lang="vi">“Sợ bị đem con bỏ chợ.”</p>
+						<p class="cs-quote__en">Scared of being left out in the cold, after trusting someone with what matters.</p>
+						<p class="cs-quote__src">A phrase that came up repeatedly across driver interviews</p>
+						<hr>
+						<p class="cs-quote__out">The real problem wasn't claim complexity. It was the fear of being abandoned mid-claim.</p>
+					</blockquote>
+				</section>
+
+				<!-- 03. The challenge -->
+				<section class="cs-section cs-section--gap16" id="challenge" aria-labelledby="h-challenge">
+					<header class="cs-heading">
+						<p class="cs-eyebrow">03. CHALLENGEs NEED TO BE SOLVE</p>
+						<h2 class="cs-h2 serif" id="h-challenge">Three trust issues. Four failure modes to design for</h2>
+					</header>
+					<div class="cs-stack32">
+						<p class="cs-p">Research gave me three things I had to solve.</p>
+						<div class="cs-issues">
+							<div class="cs-issue">
+								<p class="cs-issue__kicker">01 - 📊 Survey</p>
+								<div class="cs-issue__content">
+									<h3>Cashflow mismatch</h3>
+									<p>A 1.25M VND upfront payment doesn't match gig income. Payments should align with weekly cash flows</p>
+								</div>
+								<p class="cs-issue__hl">90% wanted installments for package</p>
+							</div>
+							<div class="cs-issue">
+								<p class="cs-issue__kicker">02 - 🗣️ Interview</p>
+								<div class="cs-issue__content">
+									<h3>It's about abandonment, not just paperwork.</h3>
+									<p>Drivers didn’t mind filling out forms. What they really worried about was paying for a promise and then getting lost when they needed help.</p>
+								</div>
+								<p class="cs-issue__hl">57% Top fear: cited claims, not price.</p>
+							</div>
+							<div class="cs-issue">
+								<p class="cs-issue__kicker">03 - ⚙️ Platform</p>
+								<div class="cs-issue__content">
+									<h3>Auto-deduct drains wallet</h3>
+									<p>bePartner's daily Cake transfer is part of normal driver flow. Auto-deduct insurance would frequently catch an empty wallet.</p>
+								</div>
+								<p class="cs-issue__hl">Drivers transfer daily wallets empty.</p>
+							</div>
+						</div>
+					</div>
+					<div class="cs-compass">
+						<img src="../assets/pa-insurance/target-icon.png" alt="" width="88" height="88" loading="lazy">
+						<div>
+							<p class="cs-compass__lead">My design compass from this point forward:</p>
+							<p class="cs-compass__quote">Trust isn't sold. It's designed into every failure mode.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 04. The decisions -->
+				<section class="cs-decisions" id="decisions" aria-labelledby="h-decisions">
+					<header class="cs-heading cs-decisions__heading">
+						<p class="cs-eyebrow">04. The decisions</p>
+						<h2 class="cs-h2 serif" id="h-decisions">How those risks became product decisions</h2>
+					</header>
+					<div class="cs-scroll cs-wide">
+						<img class="cs-img cs-img--r12" src="../assets/pa-insurance/purchase-flow.png" alt="End-to-end purchase flow for PA Insurance across seven bePartner screens: product page, plan selection, payment method, confirmation and payment schedule" width="800" height="224" loading="lazy">
+					</div>
+
+					<!-- Decision 1 -->
+					<div class="cs-decision">
+						<h3 class="cs-decision__title">1. Cashflow mismatch → Weekly accumulation model</h3>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The challenge:</h4>
+							<p class="cs-p">The default was to ship a standard annual premium: 1,250,000 VND/year, framed as the cheaper option.<br>I pushed back because research showed drivers wanted weekly payments.</p>
+						</div>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The decision:</h4>
+							<p class="cs-p"><strong class="cs-em">We shipped a model: 25,000 VND/week, auto-deducted from the driver wallet, with proportional coverage.</strong> To make the model understandable, I designed two key surfaces:</p>
+						</div>
+						<div class="cs-surfaces">
+							<figure>
+								<img src="../assets/pa-insurance/payment-comparison.png" alt="Plan registration screen with weekly accumulation pre-selected as the recommended option above the annual payment, annotated with the payment display logic" width="388" height="388" loading="lazy">
+								<figcaption>A payment comparison screen showing weekly accumulation as the recommended default, with annual lump-sum available for comparison</figcaption>
+							</figure>
+							<figure>
+								<img src="../assets/pa-insurance/coverage-timeline.png" alt="Two benefits illustration screens showing coverage growing week by week with payment, premiums paid, certificates owned and protection level" width="388" height="388" loading="lazy">
+								<figcaption>A coverage timeline explaining coverage week by week, using concrete weeks and numbers instead of insurance language</figcaption>
+							</figure>
+						</div>
+						<div class="cs-result">
+							<p class="cs-result__eyebrow">📉 final result</p>
+							<p class="cs-p cs-p--black">The trade-off was significant. Instead of one e-certificate per driver, the system needed to issue up to 50, increasing API calls and complexity. I accepted this due to the conversion risk.</p>
+							<div class="cs-result__cards">
+								<div class="cs-result__card">
+									<div class="cs-cvr" role="img" aria-label="Conversion rate: target 2%, actual 5.11%, 2.55 times the target">
+										<div class="cs-cvr__head"><span>Conversion rate</span><b>▲ 2.55× target</b></div>
+										<div class="cs-cvr__bars">
+											<div class="cs-cvr__row"><div class="cs-cvr__lr"><span>Target</span><b>2%</b></div><div class="cs-cvr__track"><span style="width: 40%"></span></div></div>
+											<div class="cs-cvr__row is-actual"><div class="cs-cvr__lr"><span>Actual</span><b>5.11%</b></div><div class="cs-cvr__track"><span style="width: 100%"></span></div></div>
+										</div>
+									</div>
+									<div class="cs-stack8">
+										<p><strong>5.11% CVR against a 2% target.</strong></p>
+										<p>The weekly model held.</p>
+									</div>
+								</div>
+								<div class="cs-result__card">
+									<img class="cs-img cs-img--r12" src="../assets/pa-insurance/review-feedback.png" alt="Chat thread from the internal design review with positive comments from Thảo Trần, Senior Product Manager" width="340" height="154" loading="lazy">
+									<div class="cs-stack8">
+										<p><strong>“Such a complex insurance concept, visualized so cleanly.”</strong></p>
+										<p>Thảo Trần, Senior Product Manager, internal design review, June 2025</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Decision 2 -->
+					<div class="cs-decision">
+						<h3 class="cs-decision__title">2. Wallet runs dry → Contract status system</h3>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The challenge:</h4>
+							<p class="cs-p">If auto-collection failed, the simple solution was: failed payment → cancelled contract.</p>
+						</div>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The decision:</h4>
+							<div class="cs-p">
+								<p>A driver with 20 weeks paid shouldn't lose coverage due to week 21's empty wallet. I designed a four-state contract system:</p>
+								<ul class="cs-list">
+									<li>Active — payment collected, coverage running</li>
+									<li>Warning — payment failed for fewer than 7 days, coverage maintained, driver prompted to top up</li>
+									<li>Suspended — payment failed for more than 7 days, coverage paused, contract history preserved</li>
+									<li>Reactivate — manual flow to restore coverage without losing prior paid history</li>
+								</ul>
+							</div>
+							<div class="cs-scroll cs-wide">
+								<img class="cs-img cs-img--r8" src="../assets/pa-insurance/contract-states.png" alt="My Insurance screens for six contract states: Active, Active with next cycle scheduled, Payment paused, Expired, Cancelled and Completed" width="800" height="264" loading="lazy">
+							</div>
+							<div class="cs-scroll cs-wide">
+								<img class="cs-img cs-img--r8" src="../assets/pa-insurance/contract-state-logic.png" alt="Contract state display logic for the weekly accumulation plan: six contract cards from State 1 Active to State 6 Completed with the trigger for each transition" width="800" height="180" loading="lazy">
+							</div>
+						</div>
+						<div class="cs-result">
+							<p class="cs-result__eyebrow">📉 final result</p>
+							<p class="cs-p cs-p--black">Shipped surfaces had specific contract screens and a reactivation flow. Drivers saw clear top-up instructions and could return without starting over.</p>
+							<p class="cs-result__hl"><span class="cs-em">98.22% recurring orders and 94.78% recurring users. </span>Drivers who paused came back.</p>
+						</div>
+					</div>
+
+					<!-- Decision 3 -->
+					<div class="cs-decision">
+						<h3 class="cs-decision__title">3. Claim anxiety → Native in-app claim guidance</h3>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The challenge:</h4>
+							<p class="cs-p">Linking drivers to MSIG’s claim portal seemed easy, reducing effort and complexity. However, I rejected it as it risked abandonment: drivers paying Be, then facing an unknown third party at a critical moment.</p>
+						</div>
+						<div class="cs-stack8">
+							<h4 class="cs-label">The decision:</h4>
+							<div class="cs-p cs-p--black">
+								<p>I designed a complete <strong>in-app claim guidance flow</strong> inside bePartner, including:</p>
+								<ul class="cs-list">
+									<li>Step-by-step claim instructions</li>
+									<li>Required documents explained clearly</li>
+									<li>Time estimates for each stage</li>
+									<li>AQ content for edge cases anticipated by the Customer Service team</li>
+								</ul>
+							</div>
+						</div>
+						<div class="cs-scroll cs-wide">
+							<img class="cs-img cs-img--r12" src="../assets/pa-insurance/claim-guidance-flow.png" alt="In-app claim guidance flow: from contract list to contract detail, then the compensation process sheet with numbered steps and a link to the PDF detail" width="800" height="439" loading="lazy">
+						</div>
+						<div class="cs-result">
+							<p class="cs-result__eyebrow">📉 final result</p>
+							<p class="cs-p cs-p--black">The trade-off was significant effort to translate insurance language into plain, driver-friendly guidance. <strong class="cs-em">But in insurance, the claim moment is where trust is truly tested.</strong></p>
+							<p class="cs-result__hl">Claim procedure was the top pre-purchase concern for <span class="cs-em">57% of drivers</span>, yet post-launch claim-related CS escalations stayed below the projected baseline.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 05. Reflection -->
+				<section class="cs-section cs-section--gap16" id="reflection" aria-labelledby="h-reflection">
+					<header class="cs-heading">
+						<p class="cs-eyebrow">05. reflection</p>
+						<h2 class="cs-h2 serif" id="h-reflection">What I'd do differently</h2>
+					</header>
+					<div class="cs-reflect">
+						<div>
+							<h3>01. Add an upgrade path from weekly to annual.</h3>
+							<p>Post-launch, the CS team got many requests from drivers to switch to the annual lump-sum model. Phase 1 didn't support this. An in-app upgrade flow is top priority for Phase 2.</p>
+						</div>
+						<div>
+							<h3>02. Reorder the coverage timeline screen.</h3>
+							<p>Move post-purchase to contract management. Provide a leaner path for conversion-ready users and an exploration area for detail-hungry users when they are receptive.</p>
+						</div>
+					</div>
+					<div class="cs-recognition" id="recognition">
+						<div class="cs-recognition__text">
+							<div class="cs-stack8">
+								<h3>Recognition</h3>
+								<p>The award came from colleagues who'd watched every decision get made, every edge case get specced, and every hot-fix go out. That made it mean more than most 🙆‍♀️🙆‍♀️🙆‍♀️</p>
+							</div>
+							<p class="cs-recognition__meta">Be Beyond Unicorn 2025<br>Excellent Project Award, PA Insurance for Driver</p>
+						</div>
+						<img src="../assets/pa-insurance/award.png" alt="Two Be Beyond Unicorn 2025 Excellent Project Award trophies on a dinner table, one for PA Insurance for Driver" width="250" height="237" loading="lazy">
+					</div>
+				</section>
+			</article>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="footer__by">Designed + researched with ♡ by Linh Tran</p>
+		<nav class="footer__links" aria-label="Social">
+			<a href="https://www.linkedin.com/in/linhtran99/" target="_blank" rel="noopener">Linked</a>
+			<a href="https://www.behance.net/linhtrandesign" target="_blank" rel="noopener">Behance</a>
+			<a href="mailto:linhtran5399@gmail.com">Email</a>
+			<a href="#">Substack</a>
+		</nav>
+	</footer>
+
+	<script>
+		// Highlight the TOC item for the section currently in view.
+		(function () {
+			var links = Array.prototype.slice.call(document.querySelectorAll('.cs-toc__items a'));
+			var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+			function update() {
+				var y = window.innerHeight * 0.3;
+				var idx = 0;
+				targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= y) idx = i; });
+				links.forEach(function (a, i) {
+					a.classList.toggle('is-active', i === idx);
+					if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+				});
+			}
+			window.addEventListener('scroll', update, { passive: true });
+			update();
+		})();
+	</script>
+</body>
+</html>
