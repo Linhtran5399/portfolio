@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nami Insurance: Help traders mitigate market risk — Linh Tran</title>
+	<meta name="description" content="Case study: redesigning Nami Insurance inside the Nami Exchange app so traders can hedge risk right where they trade, from in-depth interviews to seven in-app features.">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁︎</text></svg>">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/cs-nami-insurance.css">
+</head>
+<body>
+	<header class="topnav">
+		<a class="topnav__title" href="../index.html">Linh Tran •︎ Product designer + Researcher</a>
+		<nav class="topnav__links" aria-label="Main">
+			<a href="../index.html" aria-current="page">Work</a>
+			<a href="#">Side quests</a>
+			<a href="../index.html#about">About</a>
+			<a href="#">Resume</a>
+		</nav>
+		<span class="topnav__side">☁︎ Linhtranllm</span>
+	</header>
+
+	<main>
+		<!-- ===== Overall ===== -->
+		<section class="wrap ni-overall" aria-labelledby="ni-title">
+			<h1 class="ni-title serif" id="ni-title">Nami Insurance: Help traders mitigate market risk and maximize trading profits</h1>
+
+			<div class="ni-hero">
+				<img class="ni-img" src="../assets/nami-insurance/hero.jpg" alt="Nami Insurance inside the Nami Exchange app: two Buy contract screens with AI strategy and Manual modes, framed by trend analysis, return scenario and contract cards" width="1122" height="822">
+			</div>
+
+			<div class="ni-overview">
+				<div class="ni-context">
+					<p>I redesigned Nami Insurance inside the Nami Exchange app, so traders can hedge risk right where they trade.</p>
+
+					<div class="ni-results">
+						<dl class="ni-achievement">
+							<div class="ni-achievement__row">
+								<dt class="ni-achievement__value">22.64%</dt>
+								<dd class="ni-achievement__label">Visitors holding a contract<br>before the drop</dd>
+							</div>
+							<div class="ni-achievement__row">
+								<dt class="ni-achievement__value">15 - 20 traders</dt>
+								<dd class="ni-achievement__label">In-depth interviews<br>Ho Chi Minh City, Ha Noi, Da Nang</dd>
+							</div>
+							<div class="ni-achievement__row">
+								<dt class="ni-achievement__value">+5.6 - 7%</dt>
+								<dd class="ni-achievement__label">Adoption rate, contracts<br>and revenue</dd>
+							</div>
+						</dl>
+
+						<div class="ni-scope">
+							<p>Case study, April 2023.</p>
+							<p><mark class="ni-mark">Scope: the Nami Exchange app.</mark></p>
+							<img class="ni-scope__art" src="../assets/nami-insurance/shipped-podium.png" alt="" width="124" height="124">
+						</div>
+					</div>
+				</div>
+
+				<div class="ni-role">
+					<div class="ni-role__block">
+						<h2 class="ni-role__title">My role</h2>
+						<p>UX research, product design and solution validation, from interviews to final UI.</p>
+					</div>
+					<div class="ni-role__block">
+						<h2 class="ni-role__title">Tools</h2>
+						<ul class="ni-list">
+							<li><strong>Design &amp; handoff:</strong> Figma, Zeplin</li>
+							<li><strong>Research &amp; analysis:</strong> Google Docs, Excel</li>
+						</ul>
+					</div>
+					<div class="ni-role__block">
+						<h2 class="ni-role__title">Timeline</h2>
+						<ul class="ni-list">
+							<li><strong>Kick-off:</strong> End of March 2023</li>
+							<li><strong>Scope:</strong> Exchange mobile app</li>
+							<li><strong>Case study:</strong> April 2023</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== Content: TOC + body ===== -->
+		<div class="wrap ni-content">
+			<aside class="ni-toc" aria-label="On this page">
+				<p class="ni-toc__heading">On this page</p>
+				<nav>
+					<ol class="ni-toc__items">
+						<li><a href="#real-problem" class="is-active">01  ·  The real problem</a></li>
+						<li><a href="#research">02  ·  Research</a></li>
+						<li><a href="#challenge">03  ·  The challenge</a></li>
+						<li><a href="#design">04  ·  The design</a></li>
+						<li><a href="#reflection">05  ·  Reflection</a></li>
+					</ol>
+				</nav>
+				<div class="ni-toc__card">
+					<p>📒 Reading time: 8 minutes</p>
+					<a class="ni-toc__skip" href="#design">Skip to the design →</a>
+				</div>
+			</aside>
+
+			<article class="ni-body">
+				<!-- 01. The real problem -->
+				<section class="ni-section" id="real-problem" aria-labelledby="h-problem">
+					<header class="ni-heading">
+						<p class="ni-eyebrow">01. The real problem</p>
+						<h2 class="ni-h2 serif" id="h-problem">Adoption was high. Then it <span class="accent">dropped 76%.</span></h2>
+					</header>
+					<p>Nami Insurance is a decentralized protocol that insures over 100 assets against market fluctuations. In March 2023, the Nami Foundation aimed to integrate it into the Nami Exchange app to assist traders in managing risk.</p>
+					<div class="ni-stats">
+						<div class="ni-stat">
+							<p class="ni-eyebrow-sm">Before the drop</p>
+							<p class="ni-stat__value">22.64%</p>
+							<p>of homepage visitors held a contract, high versus other crypto insurance protocols.</p>
+						</div>
+						<div class="ni-stat">
+							<p class="ni-eyebrow-sm">February</p>
+							<p class="ni-stat__value">−76.09%</p>
+							<p>monthly contracts versus the previous period.</p>
+						</div>
+					</div>
+					<p>My hypothesis: <strong class="ni-link">awareness and access had dropped</strong>, and <strong class="ni-link">traders in Vietnam rarely use Web3 wallets</strong>, so buying Insurance on a standalone platform was hard.</p>
+					<div class="ni-hmw">
+						<img src="../assets/nami-insurance/icon-target-3d.png" alt="" width="96" height="96" loading="lazy">
+						<p class="serif">How might we turn Insurance into a tool that helps Nami Exchange traders manage risk and enhance their trading experience?</p>
+					</div>
+				</section>
+
+				<!-- Objectives -->
+				<section class="ni-block" aria-labelledby="h-objectives">
+					<div class="ni-block__text">
+						<h3 class="ni-h3" id="h-objectives">Three objectives for the redesign</h3>
+						<p>Integrate Insurance into the Exchange app to lift adoption and revenue.</p>
+					</div>
+					<div class="ni-objectives">
+						<div class="ni-objectives__grid">
+							<div class="ni-objective">
+								<div class="ni-objective__info">
+									<span class="ni-objective__tag">Objective 01</span>
+									<h4 class="ni-objective__title">Help User</h4>
+									<p>Streamline the insurance purchase process for Nami Exchange users actively trading digital assets or futures. Prioritize clear information presentation and simplify payments to minimize confusion and frustration.</p>
+								</div>
+								<img class="ni-objective__art ni-objective__art--user" src="../assets/nami-insurance/objective-user.png" alt="" width="169" height="161.5" loading="lazy">
+							</div>
+							<div class="ni-objective">
+								<div class="ni-objective__info">
+									<span class="ni-objective__tag">Objective 02</span>
+									<h4 class="ni-objective__title">Help Nami Insurance</h4>
+									<p>Enhance the appeal of the features by ensuring that the user experience is easily comprehensible and adaptable to different user profiles.</p>
+								</div>
+								<img class="ni-objective__art ni-objective__art--crystals" src="../assets/nami-insurance/objective-insurance-crystals.png" alt="" width="229" height="224" loading="lazy">
+								<img class="ni-objective__art ni-objective__art--badge" src="../assets/nami-insurance/objective-insurance-badge.png" alt="" width="178.5" height="169" loading="lazy">
+							</div>
+							<div class="ni-objective ni-objective--wide">
+								<div class="ni-objective__info">
+									<span class="ni-objective__tag">Objective 03</span>
+									<h4 class="ni-objective__title">Help Growth</h4>
+									<p>Contribute to overall company growth by optimizing the insurance vertical to become the company's secondary revenue stream, thereby reinforcing the company's value proposition.</p>
+								</div>
+								<img class="ni-objective__art ni-objective__art--growth" src="../assets/nami-insurance/objective-growth.png" alt="" width="253.5" height="145.5" loading="lazy">
+							</div>
+						</div>
+						<div class="ni-kpi">
+							<p>Scope: 90% of Exchange users prefer the app, so I focused on the app.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 02. Research -->
+				<section class="ni-section" id="research" aria-labelledby="h-research">
+					<header class="ni-heading">
+						<p class="ni-eyebrow">02. Research</p>
+						<h2 class="ni-h2 serif" id="h-research">Before designing, I <span class="accent">clarified the requirement.</span></h2>
+						<p>I turned the requirement into discovery questions, then ran in-depth interviews to answer them.</p>
+					</header>
+				</section>
+
+				<section class="ni-block" aria-labelledby="h-approach">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#My approach</span>
+						<h3 class="ni-h3" id="h-approach">Research, UX design, UI design</h3>
+					</div>
+					<div class="ni-approach">
+						<div class="ni-phase">
+							<img class="ni-phase__num" src="../assets/nami-insurance/num-01.svg" alt="" width="93.786" height="57.4359">
+							<div class="ni-phase__card">
+								<h4>Research</h4>
+								<p>I began this project by analyzing the requirements and defining the problem. The research phase validated my initial findings and outlined the next steps.</p>
+								<ul>
+									<li>Building research plan</li>
+									<li>In-depth Interview</li>
+									<li>Identify insights by Affinity Mapping Framework</li>
+									<li>Identify persona</li>
+									<li>Framing the problems and design hypothesis by how might we question.</li>
+								</ul>
+							</div>
+						</div>
+						<div class="ni-phase">
+							<img class="ni-phase__num" src="../assets/nami-insurance/num-02.svg" alt="" width="111.974" height="57.4359">
+							<div class="ni-phase__card">
+								<h4>UX Design</h4>
+								<p>In this phase, research findings informed the development of feature logic and flow. These design choices are central to user-centered design.</p>
+								<ul>
+									<li>Flow Chart and User Flow</li>
+									<li>Information Architecture</li>
+									<li>Product Requirement Document (PRD)</li>
+								</ul>
+							</div>
+						</div>
+						<div class="ni-phase">
+							<img class="ni-phase__num" src="../assets/nami-insurance/num-03.svg" alt="" width="106.286" height="57.4359">
+							<div class="ni-phase__card">
+								<h4>UI Design</h4>
+								<p>The second phase focused on constructing the house's architecture, allowing time for decoration and testing.</p>
+								<ul>
+									<li>Visual Research</li>
+									<li>Design System</li>
+									<li>User Interface Design</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="ni-highlight">
+						<img src="../assets/nami-insurance/icon-target-small.png" alt="" width="68" height="68" loading="lazy">
+						<p class="serif">What do traders struggle with when they trade?</p>
+					</div>
+				</section>
+
+				<!-- Step 1 -->
+				<section class="ni-block" aria-labelledby="h-step1">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Step 1: Discovery questions</span>
+						<h3 class="ni-h3" id="h-step1">Three keywords to clarify</h3>
+					</div>
+					<div class="ni-matrix">
+						<table>
+							<thead>
+								<tr><th scope="col">Keyword</th><th scope="col">What I needed to learn</th></tr>
+							</thead>
+							<tbody>
+								<tr><th scope="row">Traders</th><td>Age, demographics, trading experience</td></tr>
+								<tr><th scope="row">Behavior and needs</th><td>Preferred trading type, goals, frequency, methods</td></tr>
+								<tr><th scope="row">Risk</th><td>Types, frequency, impact, frustrations, alternatives, satisfaction</td></tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<!-- Step 2 -->
+				<section class="ni-block" aria-labelledby="h-step2">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Step 2: In-depth interviews (n=5)</span>
+						<div class="ni-block__text">
+							<h3 class="ni-h3" id="h-step2">Five traders, three cities</h3>
+							<p>Mobile Exchange users aged 18–40 in Ho Chi Minh City, Ha Noi and Da Nang, with 0 to 3+ years of experience, recruited through the Nami Exchange Facebook group.</p>
+						</div>
+						<div class="ni-objectives-list">
+							<h4>Interview objectives</h4>
+							<ul class="ni-list">
+								<li>Identify personas</li>
+								<li>Find the risks each persona struggles with</li>
+								<li>Find the top risks to solve</li>
+								<li>Understand their aspirations</li>
+							</ul>
+						</div>
+					</div>
+					<div class="ni-pair">
+						<figure>
+							<img class="ni-img" src="../assets/nami-insurance/interview-plan.png" alt="The In-depth Interview Plan document: table of contents, interview objective and process of screening and choosing users" width="395" height="444.5" loading="lazy">
+							<figcaption><p>The plan was tailored to gain user’s useful insights. View the <a class="ni-link" href="https://docs.google.com/document/d/1HSPWE7pYPhmHxdrj_wMW8X3hv598m0rXnc7cQ89vKQo/edit?tab=t.0#heading=h.ssva5afjriqq" target="_blank" rel="noopener"><u>Interview plan</u></a> in detail.</p></figcaption>
+						</figure>
+						<figure>
+							<img class="ni-img" src="../assets/nami-insurance/interview-quotes.png" alt="Interview quotes answering ‘What types of risks do you usually encounter while trading?’: Thịnh Nguyễn on controlling emotions in futures trading, Thành Bùi on losing money when the market goes sideways, and Vũ Phạm on predicting market trends and timing entries" width="395" height="446" loading="lazy">
+							<figcaption><p>Post-interviews, I found users often struggle with FOMO and inaccurate market predictions.</p></figcaption>
+						</figure>
+					</div>
+					<div class="ni-highlight">
+						<img src="../assets/nami-insurance/icon-target-small.png" alt="" width="68" height="68" loading="lazy">
+						<p class="serif">Two risks stood out: FOMO and false market predictions.</p>
+					</div>
+				</section>
+
+				<!-- Step 3 -->
+				<section class="ni-block" aria-labelledby="h-step3">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Step 3: Affinity mapping</span>
+						<div class="ni-block__text">
+							<h3 class="ni-h3" id="h-step3">Two risks, six insights</h3>
+							<p>Affinity mapping clustered my interview notes.</p>
+						</div>
+					</div>
+					<div class="ni-risks">
+						<div class="ni-risk">
+							<img src="../assets/nami-insurance/crystal.svg" alt="" width="64" height="64" loading="lazy">
+							<div class="ni-card-text">
+								<p class="ni-eyebrow-sm">Type of risk 01</p>
+								<p><strong>Users often feel FOMO in both Spot and Futures trading.</strong></p>
+							</div>
+						</div>
+						<div class="ni-risk">
+							<img src="../assets/nami-insurance/crystal.svg" alt="" width="64" height="64" loading="lazy">
+							<div class="ni-card-text">
+								<p class="ni-eyebrow-sm">Type of risk 02</p>
+								<p><strong>Users struggle to read market trends, so they miss the best time to enter and exit.</strong></p>
+							</div>
+						</div>
+					</div>
+					<p>Other highlighted insights were that…</p>
+					<div class="ni-insights">
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 01</p><img src="../assets/nami-insurance/insight-01.svg" alt="" width="32.6531" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>Prioritize fast notifications</strong></p><p>Price alerts must arrive within 1–2 seconds in a volatile market.</p></div>
+						</div>
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 02</p><img src="../assets/nami-insurance/insight-02.svg" alt="" width="38.3673" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>Don’t use tools effectively</strong></p><p>Junior traders pick high-risk tools like Cross mode and skip stop-loss orders.</p></div>
+						</div>
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 03</p><img src="../assets/nami-insurance/insight-03.svg" alt="" width="38.3673" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>No specific trading plan</strong></p><p>They follow instinct or signals from bots and Telegram groups.</p></div>
+						</div>
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 04</p><img src="../assets/nami-insurance/insight-04.svg" alt="" width="35" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>Aware of risk tolerance</strong></p><p>All traders know their risk tolerance and weigh it carefully.</p></div>
+						</div>
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 05</p><img src="../assets/nami-insurance/insight-05.svg" alt="" width="50.6122" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>Focus on flexibility</strong></p><p>They want fast, customizable tools that fit their strategy.</p></div>
+						</div>
+						<div class="ni-insight">
+							<div class="ni-insight__head"><p class="ni-eyebrow-sm">Insight 06</p><img src="../assets/nami-insurance/insight-06.svg" alt="" width="31.8367" height="40" loading="lazy"></div>
+							<div class="ni-card-text"><p><strong>Motivated by competition</strong></p><p>Events with rewards give them a sense of conquering challenges.</p></div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Step 4 -->
+				<section class="ni-block" aria-labelledby="h-step4">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Step 4: Personas</span>
+						<h3 class="ni-h3" id="h-step4">Three archetypes, two focus groups</h3>
+					</div>
+					<div class="ni-archetypes">
+						<div class="ni-archetype">
+							<div class="ni-archetype__top">
+								<span class="ni-archetype__avatar" style="background:#ffd6e0" aria-hidden="true">🧔🏻</span>
+								<div><p class="ni-archetype__kind">Archetype 1</p><h4 class="ni-archetype__name">Newbie trader</h4></div>
+							</div>
+							<ul class="ni-chips"><li>&lt;1 year</li><li>$0–500 / month</li></ul>
+							<dl>
+								<div><dt>Aspiration</dt><dd>Reserve capital and start earning small profits.</dd></div>
+								<div><dt>Struggles</dt><dd>Choosing tools, managing capital, timing entries and exits.</dd></div>
+							</dl>
+						</div>
+						<div class="ni-archetype">
+							<div class="ni-archetype__top">
+								<span class="ni-archetype__avatar" style="background:#ffe9a8" aria-hidden="true">🤓</span>
+								<div><p class="ni-archetype__kind">Archetype 2</p><h4 class="ni-archetype__name">Part-time trader</h4></div>
+							</div>
+							<ul class="ni-chips"><li>1–2 years</li><li>$500–1,000 / month</li></ul>
+							<dl>
+								<div><dt>Aspiration</dt><dd>Earn consistent profits and go full-time.</dd></div>
+								<div><dt>Struggles</dt><dd>FOMO, building a trading plan, applying varied techniques.</dd></div>
+							</dl>
+						</div>
+						<div class="ni-archetype">
+							<div class="ni-archetype__top">
+								<span class="ni-archetype__avatar" style="background:#ffc9be" aria-hidden="true">🧑🏻</span>
+								<div><p class="ni-archetype__kind">Archetype 3</p><h4 class="ni-archetype__name">Professional trader</h4></div>
+							</div>
+							<ul class="ni-chips"><li>2+ years</li><li>$1,000–2,000 / month</li></ul>
+							<dl>
+								<div><dt>Aspiration</dt><dd>Consistently profitable results.</dd></div>
+								<div><dt>Struggles</dt><dd>Syncing information sources and watching the market 24/7.</dd></div>
+							</dl>
+						</div>
+					</div>
+					<p><strong style="font-weight:700">I focused on newbie and part-time traders.</strong> They battle FOMO and struggle to read long-term trends, so they benefit most from Insurance.</p>
+					<div class="ni-persona">
+						<div class="ni-persona__side">
+							<p class="ni-persona__quote">Newbie/part-time traders aims to safeguard capital and enhance monthly profit ratios in Spot and Futures trading.</p>
+							<div class="ni-persona__photo" role="img" aria-label="Portrait of Vũ, the persona" style="background-image:url('../assets/nami-insurance/persona-vu.jpg')"></div>
+							<p class="ni-persona__name"><strong>Vũ (30 tuổi)</strong><span>Lập trình viên tại TPHCM</span></p>
+						</div>
+						<div class="ni-persona__detail">
+							<div class="ni-persona__box">
+								<h4>Context</h4>
+								<p style="color:rgba(0,0,0,0.8)">Rapid price swings trigger FOMO, which leads to losses and emotional stress.</p>
+							</div>
+							<div class="ni-persona__box">
+								<h4>Behavior:</h4>
+								<ul>
+									<li>Prefers Futures for fast outcomes.</li>
+									<li>Follows Telegram signals and a custom bot.</li>
+									<li>Removes stop loss when FOMO hits.</li>
+								</ul>
+							</div>
+							<div class="ni-persona__row">
+								<div class="ni-persona__box">
+									<h4>Needs:</h4>
+									<ul>
+										<li>Overcome FOMO.</li>
+										<li>A plan or alert tool for his risk tolerance.</li>
+										<li>Real-time entry and exit advice.</li>
+									</ul>
+								</div>
+								<div class="ni-persona__box">
+									<h4>Pain point:</h4>
+									<ul>
+										<li>Poor capital management.</li>
+										<li>Unaware of high-risk tool consequences.</li>
+										<li>Can’t predict trends or the best entry and exit point.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Step 5 -->
+				<section class="ni-block" aria-labelledby="h-step5">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Step 5: Secondary research</span>
+						<div class="ni-block__text">
+							<h3 class="ni-h3" id="h-step5">Why does FOMO happen?</h3>
+							<p>Desk research on crypto trading psychology showed three root causes.</p>
+						</div>
+					</div>
+					<figure class="ni-journey">
+						<figcaption class="ni-journey__label">A typical journey of a trader: FOMO behavior</figcaption>
+						<div class="ni-scroll">
+							<div class="ni-wave">
+								<img class="ni-wave__curve" src="../assets/nami-insurance/fomo-wave.svg" alt="" width="768" height="320" loading="lazy">
+								<span class="ni-wave__pin" style="left:63px;top:222px"></span><img class="ni-wave__dot" style="left:59px;top:235px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<span class="ni-wave__pin" style="left:191px;top:102px"></span><img class="ni-wave__dot" style="left:187px;top:115px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<span class="ni-wave__pin" style="left:319px;top:172px"></span><img class="ni-wave__dot" style="left:315px;top:185px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<span class="ni-wave__pin" style="left:447px;top:244px"></span><img class="ni-wave__dot" style="left:443px;top:257px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<span class="ni-wave__pin" style="left:575px;top:282px"></span><img class="ni-wave__dot" style="left:571px;top:295px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<span class="ni-wave__pin" style="left:703px;top:227px"></span><img class="ni-wave__dot" style="left:699px;top:240px" src="../assets/nami-insurance/fomo-dot.svg" alt="" width="14" height="14">
+								<div class="ni-feeling" style="left:8px;top:146px"><span class="ni-feeling__mood"><span>😄</span><span>Feeling</span></span><p>FOMO time</p></div>
+								<div class="ni-feeling" style="left:136px;top:26px"><span class="ni-feeling__mood"><span>🤑</span><span>Feeling</span></span><p>Abusive enter trade</p></div>
+								<div class="ni-feeling" style="left:264px;top:96px"><span class="ni-feeling__mood"><span>😟</span><span>Feeling</span></span><p>Denial and panic</p></div>
+								<div class="ni-feeling" style="left:392px;top:168px"><span class="ni-feeling__mood"><span>😱</span><span>Feeling</span></span><p>Doom time</p></div>
+								<div class="ni-feeling" style="left:520px;top:206px"><span class="ni-feeling__mood"><span>😖</span><span>Feeling</span></span><p>Panic selling</p></div>
+								<div class="ni-feeling" style="left:648px;top:151px"><span class="ni-feeling__mood"><span>😄</span><span>Feeling</span></span><p>FOMO again</p></div>
+							</div>
+						</div>
+					</figure>
+					<div class="ni-roots">
+						<div class="ni-root"><p class="ni-eyebrow-sm">Root cause 01</p><p><strong>Inner scarcity and greed</strong></p></div>
+						<div class="ni-root"><p class="ni-eyebrow-sm">Root cause 02</p><p><strong>Social groups &amp; herd behavior</strong></p></div>
+						<div class="ni-root"><p class="ni-eyebrow-sm">Root cause 03</p><p><strong>Market uncertainty</strong></p></div>
+					</div>
+				</section>
+
+				<!-- 03. The challenge -->
+				<section class="ni-section" id="challenge" aria-labelledby="h-challenge">
+					<header class="ni-heading">
+						<p class="ni-eyebrow">03. The challenge</p>
+						<h2 class="ni-h2 serif" id="h-challenge">Two problems to solve for <span class="accent">Vũ.</span></h2>
+					</header>
+					<div class="ni-problems">
+						<div class="ni-takeaway"><p><u>Problem 1:</u><br>Vũ often feels FOMO when trading Spot and Futures in Nami Exchange.</p></div>
+						<div class="ni-takeaway"><p><u>Problem 2:</u><br>Vũ struggles to read market trends, so he cannot find the best time to enter and exit.</p></div>
+					</div>
+					<p>The secondary research reveals three key factors contributing to users' FOMO psychology: 1) Inner scarcity and greed, 2) Herd behavior influenced by social trading groups, and 3) Market uncertainty. From these insights and interview results, I've crafted "How Might We" questions to tackle Vũ's challenges.</p>
+					<div class="ni-hmws">
+						<div class="ni-hmw-card">
+							<span class="ni-hmw-card__tag">How might we</span>
+							<p>Support Vũ overcome scarcity and greed in FOMO time and have a stable, consistent trading mindset?</p>
+							<img src="../assets/nami-insurance/hmw-1.png" alt="" width="110.5" height="88.5" loading="lazy">
+						</div>
+						<div class="ni-hmw-card">
+							<span class="ni-hmw-card__tag">How might we</span>
+							<p>Motivate Vũ achieve consistent small trading profits in both stable and volatile market conditions?</p>
+							<img src="../assets/nami-insurance/hmw-2.png" alt="" width="110" height="88.5" loading="lazy">
+						</div>
+						<div class="ni-hmw-card">
+							<span class="ni-hmw-card__tag">How might we</span>
+							<p>Assist Vũ in improving trading skills and making data-driven investment decisions?</p>
+							<img src="../assets/nami-insurance/hmw-3.png" alt="" width="110.5" height="88.5" loading="lazy">
+						</div>
+					</div>
+				</section>
+
+				<section class="ni-block" aria-labelledby="h-ideal">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Ideal scenario</span>
+						<h3 class="ni-h3" id="h-ideal">Vũ’s ideal scenario</h3>
+						<p>I placed Vũ in an ideal scenario to extract the minimum features for the MVP.</p>
+					</div>
+					<ol class="ni-story">
+						<li><img src="../assets/nami-insurance/scene-1.jpg" alt="Sketch: Vũ checks his phone, thinking about BTC prices rising" width="177" height="192.5" loading="lazy"><p>On Saturday, Vũ gets a notification that BTC/USDT prices have risen. Excited, he jumps into Insurance trading.</p></li>
+						<li><img src="../assets/nami-insurance/scene-2.jpg" alt="Sketch: a phone showing a BTC/USDT Insurance plan, with a ‘Let’s buy it’ speech bubble" width="177" height="192.5" loading="lazy"><p>Vũ receives a tailored Insurance plan from Nami Exchange that aligns with his trading style and risk appetite.</p></li>
+						<li><img src="../assets/nami-insurance/scene-3.jpg" alt="Sketch: Vũ watching a market surge on his phone" width="177" height="192.5" loading="lazy"><p>After buying Insurance plans, Vũ sees a significant market surge, prompting him to seek more trading opportunities.</p></li>
+						<li><img src="../assets/nami-insurance/scene-4.jpg" alt="Sketch: Vũ thinking hard while analyzing trends on his phone" width="177" height="192.5" loading="lazy"><p>To assess market stability, Vũ decides to analyze trends in detail.</p></li>
+						<li><img src="../assets/nami-insurance/scene-5.jpg" alt="Sketch: Vũ considering a Futures position next to a phone with charts and the Insurance badge" width="177" height="192.5" loading="lazy"><p>Despite his analysis, Vũ wants to enter Futures trading, knowing his Insurance plans provide a safety net.</p></li>
+						<li><img src="../assets/nami-insurance/scene-6.jpg" alt="Sketch: Vũ stepping back from trading screens with a falling chart" width="177" height="192.5" loading="lazy"><p>After placing another Futures position, Vũ takes a break from the market.</p></li>
+						<li><img src="../assets/nami-insurance/scene-7.jpg" alt="Sketch: Vũ seeing +15% next to a phone with a Claim button" width="177" height="192.5" loading="lazy"><p>Later, Vũ reviews his trading and notes losses in Futures, but his Insurance contracts provided a small profit.</p></li>
+						<li><img src="../assets/nami-insurance/scene-8.jpg" alt="Sketch: Vũ smiling proudly in front of an orange background" width="181" height="197" loading="lazy"><p>At month’s end, Vũ reflects on his profit growth from Futures and Insurance trading, feeling proud of his progress.</p></li>
+					</ol>
+				</section>
+
+				<section class="ni-block" aria-labelledby="h-ideation">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Ideation</span>
+						<h3 class="ni-h3" id="h-ideation">From how-might-we to ideas</h3>
+						<p>To facilitate my generation phase, I further reframed the design requirements into key actionable statements that are broad enough to allow multiple solutions, but narrow enough to set focus.</p>
+					</div>
+					<img class="ni-img" src="../assets/nami-insurance/hmw-board.png" alt="How Might We ideation board: three how-might-we circles surrounded by sticky-note ideas such as profit goals, trading plans based on risk ratio, market trend notifications, macro market data and technical trend analysis" width="800" height="569" loading="lazy">
+					<div class="ni-ideas">
+						<h4>💊 Ideas I developed further</h4>
+						<ul>
+							<li>Profit performance dashboard</li>
+							<li>Trading goals and risk/reward ratios</li>
+							<li>Trading plan with diversified assets</li>
+							<li>Cover parameters by market condition</li>
+							<li>Profit scenario when buying Insurance</li>
+							<li>Macro market data overview</li>
+							<li>Simple technical trend analysis</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- 04. The design -->
+				<section class="ni-section" id="design" aria-labelledby="h-design">
+					<header class="ni-heading" style="gap:12px">
+						<p class="ni-eyebrow">04. The design</p>
+						<div class="ni-block__text">
+							<h2 class="ni-h2 serif" id="h-design">From insight to <span class="accent">seven in-app features.</span></h2>
+							<p>I set three design objectives as my compass.</p>
+						</div>
+					</header>
+					<div class="ni-compass">
+						<div class="ni-compass__card">
+							<img src="../assets/nami-insurance/icon-heart.svg" alt="" width="56" height="56" loading="lazy">
+							<div class="ni-card-text"><p class="ni-eyebrow-sm">Objective 01</p><p><strong style="font-weight:700">Visually aesthetic</strong></p></div>
+							<p>Clear, beautiful visualization of trading progress keeps users inspired.</p>
+						</div>
+						<div class="ni-compass__card">
+							<img src="../assets/nami-insurance/icon-smile.svg" alt="" width="56" height="56" loading="lazy">
+							<div class="ni-card-text"><p class="ni-eyebrow-sm">Objective 02</p><p><strong style="font-weight:700">Personalization</strong></p></div>
+							<p>Customizable tools that fit each trader’s needs and strategy.</p>
+						</div>
+						<div class="ni-compass__card">
+							<img src="../assets/nami-insurance/icon-target.svg" alt="" width="56" height="56" loading="lazy">
+							<div class="ni-card-text"><p class="ni-eyebrow-sm">Objective 03</p><p><strong style="font-weight:700">Minimalist design</strong></p></div>
+							<p>As little time as possible, so trading never feels like a chore.</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="ni-block" aria-labelledby="h-flow">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#User flow</span>
+						<div class="ni-block__text">
+							<h3 class="ni-h3" id="h-flow">Overview user flow</h3>
+							<p>I developed the following user flow with the data collected from my research. This user flow was the proof to help us visualize the typical user’s journey, map out key solutions to fit in with the user’s journey and develop wireframes as well as a prototype to test with users later.</p>
+						</div>
+					</div>
+					<div class="ni-figure">
+						<img class="ni-img" src="../assets/nami-insurance/user-flow.png" alt="User flow: Start, Insurance home, Onboarding, risk/reward profile set up, contract suggestions and market trend reminders as a prompting loop; Buy Insurance, choose cover assets, contracts possessed, contract ended, PNL reminder and performance history as a trading habit loop, then End" width="800" height="424" loading="lazy">
+					</div>
+				</section>
+
+				<section class="ni-block" aria-labelledby="h-system">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#Design system</span>
+						<div class="ni-block__text">
+							<h3 class="ni-h3" id="h-system">Built on the Nami Design System</h3>
+							<p>Nami Design System is Nami’s source of truth for developers. To ensure consistency between the development and the design sides, we needed to create that system in the language that Designers could understand. Nami Design System is divided into 3 main parts: Foundation, Mobile component, and Web component.</p>
+						</div>
+					</div>
+					<div class="ni-block__text" style="gap:12px">
+						<img class="ni-img" src="../assets/nami-insurance/design-system.jpg" alt="Nami Design System components in dark mode: NFT card, futures trading tab, segment switch, buttons, inputs, icons, color tokens, token list and the nami exchange logo" width="800" height="320" loading="lazy">
+						<p>See the <a class="ni-link" href="https://daryatran.notion.site/Nami-Exchange-A-Step-by-Step-Revamp-of-a-Design-System-354ecabc4dff491995be0945a70ac5bf" target="_blank" rel="noopener">Revamp Nami Exchange design system</a> process.</p>
+					</div>
+				</section>
+
+				<section class="ni-features" aria-labelledby="h-features">
+					<div class="ni-block__info">
+						<span class="ni-steptag">#The solution</span>
+						<h3 class="ni-h3" id="h-features">Detailed features</h3>
+					</div>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">1. Homescreen - The main journey</h4>
+						<p>The main journey: news on how Insurance works, prices of top trading pairs, and contracts matched to your goals.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/homescreen-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: the Nami Insurance home with Insurance news, top trading pair prices and contracts recommended for the user">
+								<source src="../assets/nami-insurance/video/homescreen.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/homescreen.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance?type=design&amp;node-id=1%3A3570&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">2. Insurance demonstration</h4>
+						<p>Pick an asset, quantity, duration, margin and claim price, then see the potential profit and return scenarios.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/calculator-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: picking an asset, quantity, duration, margin and claim price to see potential profit and return scenarios">
+								<source src="../assets/nami-insurance/video/calculator.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/calculator.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance?type=design&amp;node-id=1%3A2585&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">3. Suggested cover parameters</h4>
+						<p>Parameters are suggested from the user’s risk/reward ratio and the market conditions.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/survey-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: the onboarding survey that sets the risk/reward profile used to suggest cover parameters">
+								<source src="../assets/nami-insurance/video/survey.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/survey.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance?type=design&amp;node-id=1%3A33542&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">4. Customize an Insurance contract</h4>
+						<p>AI Strategy picks the most optimal package; Manual mode lets users tune every parameter.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/buy-contract-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: customizing an Insurance contract with AI Strategy and Manual modes">
+								<source src="../assets/nami-insurance/video/buy-contract.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/buy-contract.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance?type=design&amp;node-id=2%3A39442&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">5. Contract history</h4>
+						<p>Track available and closed contracts.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/history-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: opening the contract history from the Buy contract screen">
+								<source src="../assets/nami-insurance/video/history.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/history.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance-flow-explaination?type=design&amp;node-id=11%3A70653&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">6. Market and macro data</h4>
+						<p>Browse 30+ covered assets and track macro trends to time a bull or bear contract.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/market-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: browsing covered assets and macro market data from the Nami Insurance home">
+								<source src="../assets/nami-insurance/video/market.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/market.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance?type=design&amp;node-id=1%3A30418&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+
+					<article class="ni-feature">
+						<h4 class="ni-h3">7. Profit performance</h4>
+						<p>Track profit growth daily, monthly and quarterly.</p>
+						<div class="ni-slot">
+							<video poster="../assets/nami-insurance/video/performance-poster.jpg" width="800" height="800" muted loop playsinline preload="none" aria-label="Screen recording: opening Performance from the Nami Insurance home to track profit growth">
+								<source src="../assets/nami-insurance/video/performance.mp4" type="video/mp4">
+								<source src="../assets/nami-insurance/video/performance.webm" type="video/webm">
+							</video>
+						</div>
+						<a class="ni-flowlink" href="https://www.figma.com/file/C3mF2QejWpUL0tAYnhPvMp/Insurance-flow-explaination?type=design&amp;node-id=12%3A74825&amp;mode=design" target="_blank" rel="noopener">Flow explanation ↗</a>
+					</article>
+				</section>
+
+				<!-- 05. Reflection -->
+				<section class="ni-section" id="reflection" aria-labelledby="h-reflection">
+					<header class="ni-heading">
+						<p class="ni-eyebrow">05. Reflection</p>
+						<h2 class="ni-h2 serif" id="h-reflection">What I learned</h2>
+					</header>
+					<div class="ni-reflect">
+						<div>
+							<h3>01. A clear product roadmap is crucial.</h3>
+							<p>Without a broader vision we rushed, reasoned weakly and reacted instead of planning.</p>
+						</div>
+						<div>
+							<h3>02. Test, test, test!</h3>
+							<p>We under-invested in usability testing and relied on assumptions about users.</p>
+						</div>
+					</div>
+				</section>
+			</article>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="footer__by">Designed + researched with ♡ by Linh Tran</p>
+		<nav class="footer__links" aria-label="Social">
+			<a href="https://www.linkedin.com/in/linhtran99/" target="_blank" rel="noopener">Linked</a>
+			<a href="https://www.behance.net/linhtrandesign" target="_blank" rel="noopener">Behance</a>
+			<a href="mailto:linhtran5399@gmail.com">Email</a>
+			<a href="#">Substack</a>
+		</nav>
+	</footer>
+
+	<script>
+		// Highlight the TOC item for the section currently in view.
+		(function () {
+			var links = Array.prototype.slice.call(document.querySelectorAll('.ni-toc__items a'));
+			var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+			function update() {
+				var y = window.innerHeight * 0.3;
+				var idx = 0;
+				targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= y) idx = i; });
+				links.forEach(function (a, i) {
+					a.classList.toggle('is-active', i === idx);
+					if (i === idx) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+				});
+			}
+			window.addEventListener('scroll', update, { passive: true });
+			update();
+		})();
+
+		// Feature videos: play only while on screen; reduced-motion users get controls instead.
+		(function () {
+			var videos = Array.prototype.slice.call(document.querySelectorAll('.ni-slot video'));
+			var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			if (reduce || !('IntersectionObserver' in window)) {
+				videos.forEach(function (v) { v.controls = true; v.preload = 'metadata'; });
+				return;
+			}
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (e) {
+					if (e.isIntersecting) { e.target.play().catch(function () { e.target.controls = true; }); }
+					else { e.target.pause(); }
+				});
+			}, { threshold: 0.4 });
+			videos.forEach(function (v) { io.observe(v); });
+		})();
+	</script>
+</body>
+</html>

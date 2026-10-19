@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="768" height="320" viewBox="0 0 768 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="wave-curve" clip-path="url(#clip0_0_127)">
+<path id="Vector" d="M0 250C21.33 246.67 42.67 251.67 64 240C106.67 216.67 149.33 120 192 120C234.67 120 277.33 166.33 320 190C362.67 213.67 405.33 243.67 448 262C490.67 280.33 533.33 300 576 300C618.67 300 661.33 264.17 704 245C725.33 235.42 746.67 225 768 215V320H0V250Z" fill="url(#paint0_linear_0_127)"/>
+<path id="Vector_2" d="M0 250C21.33 246.67 42.67 251.67 64 240C106.67 216.67 149.33 120 192 120C234.67 120 277.33 166.33 320 190C362.67 213.67 405.33 243.67 448 262C490.67 280.33 533.33 300 576 300C618.67 300 661.33 264.17 704 245C725.33 235.42 746.67 225 768 215" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#EA2A3C"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_127" x1="0" y1="120" x2="0" y2="320" gradientUnits="userSpaceOnUse">
+<stop stop-color="#EA2A3C" stop-opacity="0.22"/>
+<stop offset="1" stop-color="#EA2A3C" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_0_127">
+<rect width="768" height="320" fill="white"/>
+</clipPath>
+</defs>
+</svg>
