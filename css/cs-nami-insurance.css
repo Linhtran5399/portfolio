@@ -1093,29 +1093,6 @@
 	object-fit: contain;
 }
 
-.ni-slot--empty {
-	flex-direction: column;
-	gap: 4px;
-	padding: 16px;
-	border: 1px dashed var(--border-default);
-	background: var(--surface-card);
-	text-align: center;
-}
-
-.ni-content .ni-slot--empty p:first-child {
-	color: var(--text-secondary);
-	font-size: var(--fs-small);
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-}
-
-.ni-content .ni-slot--empty p:last-child {
-	font-size: var(--fs-body);
-	font-weight: 500;
-	line-height: var(--lh-body);
-}
 
 .ni-flowlink {
 	color: var(--core-primary);
@@ -1278,8 +1255,6 @@
 		width: 100%;
 		height: 100%;
 	}
-
-	.ni-slot--empty { aspect-ratio: 2 / 1; }
 }
 
 @media (max-width: 480px) {
