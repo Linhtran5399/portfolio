@@ -998,6 +998,127 @@
 	border-radius: 8px;
 }
 
+/* ---------- Click-to-enlarge ---------- */
+.cs-zoom {
+	position: relative;
+	display: block;
+	border-radius: 12px;
+	cursor: zoom-in;
+}
+
+.cs-zoom:focus-visible {
+	outline: 2px solid var(--core-primary);
+	outline-offset: 3px;
+}
+
+.cs-zoom__hint {
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	padding: 4px 10px;
+	border-radius: var(--radius-tag);
+	background: rgba(33, 37, 41, 0.8);
+	color: var(--white);
+	font-size: var(--fs-small);
+	font-weight: 600;
+	line-height: 16px;
+	white-space: nowrap;
+	opacity: 0;
+	transition: opacity 0.2s;
+	pointer-events: none;
+}
+
+.cs-zoom:hover .cs-zoom__hint,
+.cs-zoom:focus-visible .cs-zoom__hint {
+	opacity: 1;
+}
+
+@media (hover: none) {
+	.cs-zoom__hint { opacity: 1; }
+}
+
+.cs-lightbox {
+	width: 100vw;
+	max-width: none;
+	height: 100vh;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: rgba(15, 17, 20, 0.94);
+	color: var(--white);
+}
+
+.cs-lightbox[open] {
+	display: flex;
+	flex-direction: column;
+}
+
+html:has(.cs-lightbox[open]) {
+	overflow: hidden;
+}
+
+.cs-lightbox::backdrop {
+	background: rgba(15, 17, 20, 0.6);
+}
+
+.cs-lightbox__stage {
+	flex: 1 1 auto;
+	display: flex;
+	min-height: 0;
+	overflow: auto;
+	padding: 56px 24px 12px;
+	-webkit-overflow-scrolling: touch;
+}
+
+.cs-lightbox__img {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+	object-fit: contain;
+	border-radius: 8px;
+	cursor: zoom-in;
+}
+
+.cs-lightbox.is-zoomed .cs-lightbox__img {
+	max-width: none;
+	max-height: none;
+	cursor: zoom-out;
+}
+
+.cs-lightbox__img:focus-visible {
+	outline: 2px solid var(--white);
+	outline-offset: 4px;
+}
+
+.cs-lightbox__close {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.12);
+	color: var(--white);
+	font: 400 28px/40px var(--font-sans);
+	cursor: pointer;
+}
+
+.cs-lightbox__close:hover { background: rgba(255, 255, 255, 0.24); }
+
+.cs-lightbox__caption {
+	flex: none;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 24px 20px;
+	color: rgba(255, 255, 255, 0.75);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	text-align: center;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
 	.cs-overview {
