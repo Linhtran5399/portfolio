@@ -478,6 +478,7 @@
 
 .ni-phase__num {
 	position: relative;
+	align-self: flex-start;
 	height: 57.4px;
 	width: auto;
 	margin-bottom: -18.5px;
