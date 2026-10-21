@@ -202,47 +202,41 @@
 	flex: 0 0 var(--cs-toc-w);
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 40px;
 	padding: var(--cs-section-pad) 44px 0 0;
-	line-height: normal;
 }
 
-.cs-toc .cs-toc__heading {
-	color: var(--text-secondary);
-	font-weight: 600;
-	line-height: normal;
-	text-transform: uppercase;
+/* Override the 16/24 content text so the TOC uses the body token. */
+.cs-content .cs-toc li,
+.cs-content .cs-toc p {
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
 }
 
 .cs-toc__items {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 8px;
 	list-style: none;
-}
-
-.cs-content .cs-toc__items li {
-	line-height: normal;
 }
 
 .cs-toc__items a {
 	position: relative;
 	display: inline-block;
-	font-size: var(--fs-h1);
-	font-weight: 500;
-	white-space: pre;
+	color: var(--text-muted);
+	white-space: nowrap;
 	transition: color 0.2s;
 }
 
+/* Active marker: 4px square, 12px left of the label so labels stay aligned. */
 .cs-toc__items a::before {
 	content: "";
 	position: absolute;
-	top: -3.5px;
-	left: -24px;
-	width: 3px;
-	height: 26px;
-	border-radius: 2px;
-	background: #4f6bf5;
+	top: 8px;
+	left: -12px;
+	width: 4px;
+	height: 4px;
+	background: var(--core-primary);
 	opacity: 0;
 	transition: opacity 0.2s;
 }
@@ -259,23 +253,14 @@
 .cs-toc__card {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	padding: 12px;
-	border: 1px solid #e4e4e7;
-	border-radius: 12px;
-	font-weight: 600;
+	gap: 4px;
 }
 
-.cs-toc .cs-toc__time {
-	line-height: normal;
+.cs-toc__time {
+	color: var(--text-muted);
 }
 
 .cs-toc__skip {
-	color: var(--text-secondary);
-	font-size: var(--fs-h1);
-}
-
-.cs-toc__skip span {
 	color: var(--core-primary);
 }
 

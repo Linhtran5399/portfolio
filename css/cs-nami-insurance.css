@@ -179,44 +179,41 @@
 	flex: 0 0 var(--ni-toc-w);
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 40px;
 	padding: var(--ni-section-pad) 44px 0 0;
 }
 
-.ni-content .ni-toc__heading {
-	color: var(--text-secondary);
-	font-weight: 600;
-	line-height: normal;
-	text-transform: uppercase;
+/* Override the 16/24 content text so the TOC uses the body token. */
+.ni-content .ni-toc li,
+.ni-content .ni-toc p {
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
 }
 
 .ni-toc__items {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: 8px;
 	list-style: none;
 }
-
-.ni-content .ni-toc__items li { line-height: normal; }
 
 .ni-toc__items a {
 	position: relative;
 	display: inline-block;
-	font-size: var(--fs-h1);
-	font-weight: 500;
-	white-space: pre;
+	color: var(--text-muted);
+	white-space: nowrap;
 	transition: color 0.2s;
 }
 
+/* Active marker: 4px square, 12px left of the label so labels stay aligned. */
 .ni-toc__items a::before {
 	content: "";
 	position: absolute;
-	top: -3.5px;
-	left: -24px;
-	width: 3px;
-	height: 26px;
-	border-radius: 2px;
-	background: #4f6bf5;
+	top: 8px;
+	left: -12px;
+	width: 4px;
+	height: 4px;
+	background: var(--core-primary);
 	opacity: 0;
 	transition: opacity 0.2s;
 }
@@ -231,22 +228,13 @@
 .ni-toc__card {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	padding: 12px;
-	border: 1px solid #e4e4e7;
-	border-radius: 12px;
-	font-weight: 600;
-	line-height: normal;
+	gap: 4px;
+	color: var(--text-muted);
 }
 
-.ni-content .ni-toc__card p { line-height: normal; }
+.ni-toc__skip { color: var(--core-primary); }
 
-.ni-toc__skip {
-	color: var(--text-secondary);
-	font-size: var(--fs-h1);
-}
-
-.ni-toc__skip:hover { color: var(--core-primary); }
+.ni-toc__skip:hover { text-decoration: underline; }
 
 .ni-body {
 	flex: 0 1 var(--ni-body-w);
