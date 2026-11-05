@@ -82,6 +82,7 @@ _Directions explicitly rejected during this session. Do not re-propose these wit
 
 ## Open Questions
 - `--fs-micro` is 10px, small for readers and likely to be flagged by `/a11y`. Kept as-is per the font-size decision; revisit only if the owner decides to.
-- Token naming oddity: `--fs-h1` is 16px while the real h1 is the 50px display size. Candidate for `/tokens`.
+- Token naming oddity: `--fs-h1` is 16px while the real h1 is the 50px display size. Decided on 2026-11-05 to leave the name as is.
+- Still hardcoded after `/tokens` (single-use or alpha values, left on purpose): `#0f1e29`, `#fff5eb`, `#ea2a3c` (1/255 from `--ni-red-2`, kept to stay pixel-identical), `#007aff`, `#ffefa1`, and the `rgba()` overlays and gradients; sub-pixel Figma radii (6.7, 10.6, 12.26px) and font sizes 34, 30, 25.4, 18, 12.7px.
 - Mobile layout is out of scope for this phase (desktop first); revisit later.
 - Figma file (Portfolio) not yet read; use it when `/uiux` works on the Work home.
