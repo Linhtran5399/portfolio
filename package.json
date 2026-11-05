@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Linh Tran's portfolio — a static site (plain HTML/CSS) built from the Figma file \"Portfolio\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Linhtran5399/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Linhtran5399/portfolio/issues"
+  },
+  "homepage": "https://github.com/Linhtran5399/portfolio#readme",
+  "private": "true",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "axe-core": "^4.14.0"
+  }
+}
