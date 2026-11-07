@@ -1,16 +1,15 @@
 /* Case study: Nami Insurance
    Page-specific styles; shared tokens, nav, footer live in styles.css */
 :root {
-	--ni-title: #171717;
-	--ni-dark: #212529;
 	--ni-ink: #363232;
 	--ni-ink-2: #2f3133;
 	--ni-red: #f93636;
 	--ni-red-2: #eb2b3e;
-	--ni-yellow-50: #fffbdc;
-	--ni-yellow: #f5de65;
 	--ni-surface: #f2f2f7;
 	--ni-video-bg: #eeeef4;
+	--ni-avatar-1: #ffd6e0;
+	--ni-avatar-2: #ffe9a8;
+	--ni-avatar-3: #ffc9be;
 	--ni-toc-w: 320px;
 	--ni-body-w: 800px;
 	--ni-section-pad: 80px;
@@ -28,7 +27,7 @@
 .ni-overall strong { font-weight: 600; }
 
 .ni-list {
-	padding-left: 24px;
+	padding-left: var(--space-6);
 	list-style: disc;
 }
 
@@ -50,26 +49,26 @@
 .ni-overall {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
-	padding-top: 80px;
+	gap: var(--space-6);
+	padding-top: var(--space-20);
 }
 
 .ni-title {
-	color: var(--ni-title);
+	color: var(--text-title);
 	font-size: var(--fs-display);
 	line-height: var(--lh-display);
 }
 
 .ni-hero {
 	overflow: hidden;
-	border-radius: 16px;
+	border-radius: var(--radius-bento);
 	background: #fff5eb;
 }
 
 .ni-overview {
 	display: flex;
 	align-items: flex-start;
-	gap: 40px;
+	gap: var(--space-10);
 }
 
 .ni-context {
@@ -77,18 +76,18 @@
 	min-width: 0;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: var(--space-6);
 }
 
 .ni-results {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: var(--space-3);
 }
 
 .ni-achievement {
-	padding: 0 16px;
-	border-radius: 16px;
+	padding: 0 var(--space-4);
+	border-radius: var(--radius-bento);
 	background: var(--surface-card);
 }
 
@@ -96,15 +95,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 8px 16px;
-	padding: 24px 0;
+	gap: var(--space-2) var(--space-4);
+	padding: var(--space-6) 0;
 	border-bottom: 1px solid var(--border-default);
 }
 
 .ni-achievement__row:last-child { border-bottom: 0; }
 
 .ni-achievement__value {
-	font-size: 32px;
+	font-size: var(--fs-section);
 	line-height: var(--lh-h2);
 	white-space: nowrap;
 }
@@ -119,9 +118,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 4px;
-	padding: 8px 16px;
-	border-radius: 16px;
+	gap: var(--space-1);
+	padding: var(--space-2) var(--space-4);
+	border-radius: var(--radius-bento);
 	background: var(--surface-card);
 }
 
@@ -134,7 +133,7 @@
 .ni-mark {
 	display: inline-block;
 	padding: 2px;
-	background: var(--ni-yellow);
+	background: var(--yellow-hl);
 }
 
 .ni-scope__art {
@@ -149,19 +148,19 @@
 	flex: 0 0 400px;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: var(--space-6);
 }
 
 .ni-role__block {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-role__title {
 	color: var(--core-primary);
 	font-family: var(--font-serif);
-	font-size: 20px;
+	font-size: var(--fs-lead);
 	font-weight: 700;
 	line-height: 20px;
 }
@@ -179,7 +178,7 @@
 	flex: 0 0 var(--ni-toc-w);
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: var(--space-10);
 	padding: var(--ni-section-pad) 44px 0 0;
 }
 
@@ -193,7 +192,7 @@
 .ni-toc__items {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: var(--space-2);
 	list-style: none;
 }
 
@@ -228,7 +227,7 @@
 .ni-toc__card {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 	color: var(--text-muted);
 }
 
@@ -245,7 +244,7 @@
 .ni-section {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
+	gap: var(--space-6);
 	padding-top: var(--ni-section-pad);
 	scroll-margin-top: 70px;
 }
@@ -253,7 +252,7 @@
 .ni-heading {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 }
 
 .ni-content .ni-eyebrow {
@@ -270,26 +269,26 @@
 .ni-block {
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
-	padding-top: 40px;
+	gap: var(--space-6);
+	padding-top: var(--space-10);
 }
 
 .ni-block__info {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 12px;
+	gap: var(--space-3);
 }
 
 .ni-block__text {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 }
 
 .ni-steptag {
 	padding: 3px 9px;
-	border-radius: 4px;
+	border-radius: var(--radius-xs);
 	background: var(--tag-blue-bg);
 	color: var(--tag-blue-fg);
 	font-size: var(--fs-body);
@@ -298,29 +297,29 @@
 }
 
 .ni-h3 {
-	font-size: 24px;
+	font-size: var(--fs-title);
 	font-weight: 700;
 	line-height: 30px;
 }
 
 .ni-eyebrow-sm {
 	color: var(--text-secondary);
-	font-size: 11px;
+	font-size: var(--fs-caption);
 	font-weight: 700;
 	line-height: normal;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
 
-.ni-content p.ni-eyebrow-sm { font-size: 11px; line-height: normal; }
+.ni-content p.ni-eyebrow-sm { font-size: var(--fs-caption); line-height: normal; }
 
 .ni-hmw {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	padding: 16px 24px;
-	border-radius: 12px;
-	background: var(--ni-yellow-50);
+	gap: var(--space-2);
+	padding: var(--space-4) var(--space-6);
+	border-radius: var(--radius-card);
+	background: var(--yellow-50);
 }
 
 .ni-hmw img,
@@ -329,7 +328,7 @@
 .ni-content .ni-hmw p,
 .ni-content .ni-highlight p {
 	flex: 1 1 0;
-	font-size: 24px;
+	font-size: var(--fs-title);
 	line-height: 32px;
 	text-align: center;
 }
@@ -337,9 +336,9 @@
 .ni-highlight {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	padding: 12px 24px;
-	border-radius: 12px;
+	gap: var(--space-2);
+	padding: var(--space-3) var(--space-6);
+	border-radius: var(--radius-card);
 	background: var(--surface-card);
 }
 
@@ -347,20 +346,20 @@
 .ni-stats {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .ni-stat {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	padding: 16px;
-	border-radius: 8px;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	border-radius: var(--radius-sm);
 	background: var(--surface-card);
 }
 
 .ni-content .ni-stat__value {
-	font-size: 40px;
+	font-size: var(--fs-heading);
 	font-weight: 700;
 	line-height: normal;
 }
@@ -368,15 +367,15 @@
 /* Objectives */
 .ni-objectives {
 	overflow: hidden;
-	border-radius: 12px;
+	border-radius: var(--radius-card);
 }
 
 .ni-objectives__grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 16px;
-	padding: 16px;
-	background: var(--ni-dark);
+	gap: var(--space-4);
+	padding: var(--space-4);
+	background: var(--text-primary);
 }
 
 .ni-objective {
@@ -384,8 +383,8 @@
 	overflow: hidden;
 	isolation: isolate;
 	min-height: 381px;
-	padding: 16px;
-	border-radius: 12px;
+	padding: var(--space-4);
+	border-radius: var(--radius-card);
 	background: var(--white);
 }
 
@@ -408,7 +407,7 @@
 
 .ni-objective__tag {
 	padding: 3px 9px;
-	border-radius: 4px;
+	border-radius: var(--radius-xs);
 	background: var(--surface-card);
 	color: var(--ni-red);
 	font-size: var(--fs-body);
@@ -439,7 +438,7 @@
 .ni-objective__art--growth { right: 20px; bottom: 0; width: 253.5px; }
 
 .ni-kpi {
-	padding: 16px 20px;
+	padding: var(--space-4) 20px;
 	background: var(--surface-card);
 	text-align: center;
 }
@@ -453,10 +452,10 @@
 .ni-approach {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 24px;
-	padding: 24px;
+	gap: var(--space-6);
+	padding: var(--space-6);
 	border-radius: 10px;
-	background: #fff url("../assets/nami-insurance/approach-bg.jpg") center / cover;
+	background: var(--white) url("../assets/nami-insurance/approach-bg.jpg") center / cover;
 }
 
 .ni-phase {
@@ -476,8 +475,8 @@
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	padding: 24px 16px 16px;
+	gap: var(--space-2);
+	padding: var(--space-6) var(--space-4) var(--space-4);
 	border: 0.5px solid var(--ni-red);
 	border-radius: 6px;
 	background: linear-gradient(186deg, rgba(255, 255, 255, 0.15) 3%, rgba(249, 54, 54, 0.075) 130%);
@@ -502,7 +501,7 @@
 .ni-phase__card ul {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 	padding-left: 21px;
 }
 
@@ -510,7 +509,7 @@
 .ni-matrix {
 	overflow: hidden;
 	border: 1px solid var(--border-default);
-	border-radius: 12px;
+	border-radius: var(--radius-card);
 }
 
 .ni-matrix table {
@@ -524,7 +523,7 @@
 
 .ni-matrix th,
 .ni-matrix td {
-	padding: 16px;
+	padding: var(--space-4);
 	vertical-align: middle;
 }
 
@@ -553,7 +552,7 @@
 .ni-objectives-list {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-content .ni-objectives-list h4 {
@@ -565,35 +564,35 @@
 .ni-pair {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 12px;
+	gap: var(--space-3);
 }
 
 .ni-pair figure {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: var(--space-3);
 }
 
 /* 02b · risks + insights */
 .ni-risks {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .ni-risk {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	padding: 16px;
-	border-radius: 12px;
-	background: var(--ni-yellow-50);
+	gap: var(--space-4);
+	padding: var(--space-4);
+	border-radius: var(--radius-card);
+	background: var(--yellow-50);
 }
 
 .ni-card-text {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 }
 
 .ni-content .ni-card-text strong,
@@ -604,15 +603,15 @@
 .ni-insights {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .ni-insight {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	padding: 16px;
-	border-radius: 8px;
+	gap: var(--space-4);
+	padding: var(--space-4);
+	border-radius: var(--radius-sm);
 	background: var(--surface-card);
 }
 
@@ -631,15 +630,15 @@
 .ni-archetypes {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .ni-archetype {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	padding: 16px;
-	border-radius: 12px;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	border-radius: var(--radius-card);
 	background: var(--surface-card);
 }
 
@@ -657,9 +656,12 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	font-size: 20px;
+	font-size: var(--fs-lead);
 	line-height: 24px;
 }
+.ni-archetype__avatar--1 { background: var(--ni-avatar-1); }
+.ni-archetype__avatar--2 { background: var(--ni-avatar-2); }
+.ni-archetype__avatar--3 { background: var(--ni-avatar-3); }
 
 .ni-content .ni-archetype__kind {
 	color: var(--core-primary);
@@ -677,12 +679,12 @@
 .ni-chips {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: var(--space-2);
 	list-style: none;
 }
 
 .ni-content .ni-chips li {
-	padding: 4px 8px;
+	padding: var(--space-1) var(--space-2);
 	border-radius: var(--radius-tag);
 	background: var(--white);
 	font-size: var(--fs-small);
@@ -694,7 +696,7 @@
 .ni-archetype dl {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: var(--space-3);
 	font-size: var(--fs-body);
 	line-height: var(--lh-body);
 }
@@ -702,7 +704,7 @@
 .ni-archetype dl div {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 }
 
 .ni-archetype dt { font-weight: 700; }
@@ -711,7 +713,7 @@
 .ni-persona {
 	display: flex;
 	overflow: hidden;
-	border: 1.1px solid #000;
+	border: 1.1px solid var(--black);
 	border-radius: 11px;
 	background: var(--white);
 }
@@ -724,7 +726,7 @@
 	align-items: center;
 	gap: 22px;
 	padding-top: 22px;
-	background: #000;
+	background: var(--black);
 }
 
 .ni-content .ni-persona__quote {
@@ -746,7 +748,7 @@
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.55) 8.3%, rgba(255, 255, 255, 0) 53%);
+	background: linear-gradient(to top, var(--black) 0%, rgba(0, 0, 0, 0.55) 8.3%, rgba(255, 255, 255, 0) 53%);
 }
 
 .ni-persona__name {
@@ -770,15 +772,15 @@
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: var(--space-3);
 	min-width: 0;
-	padding: 16px;
+	padding: var(--space-4);
 }
 
 .ni-persona__row {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 12px;
+	gap: var(--space-3);
 }
 
 .ni-persona__box {
@@ -807,7 +809,7 @@
 .ni-persona__box ul {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: var(--space-1);
 	padding-left: 21px;
 }
 
@@ -815,10 +817,10 @@
 .ni-journey {
 	display: flex;
 	flex-direction: column;
-	gap: 16px;
-	padding: 16px;
+	gap: var(--space-4);
+	padding: var(--space-4);
 	border: 1px solid var(--border-default);
-	border-radius: 16px;
+	border-radius: var(--radius-bento);
 }
 
 .ni-content .ni-journey__label {
@@ -866,16 +868,16 @@
 	gap: 2px;
 	width: 112px;
 	height: 76px;
-	padding: 8px;
+	padding: var(--space-2);
 	border: 1px solid var(--border-default);
-	border-radius: 4px;
+	border-radius: var(--radius-xs);
 	background: var(--white);
 }
 
 .ni-feeling__mood {
 	display: flex;
 	align-items: center;
-	gap: 4px;
+	gap: var(--space-1);
 	white-space: nowrap;
 }
 
@@ -886,7 +888,7 @@
 
 .ni-feeling__mood span:last-child {
 	color: var(--text-secondary);
-	font-size: 11px;
+	font-size: var(--fs-caption);
 	line-height: 14px;
 }
 
@@ -899,15 +901,15 @@
 .ni-roots {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-root {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
-	padding: 16px 12px;
-	border-radius: 8px;
+	gap: var(--space-1);
+	padding: var(--space-4) var(--space-3);
+	border-radius: var(--radius-sm);
 	background: var(--surface-card);
 }
 
@@ -917,13 +919,13 @@
 .ni-problems {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-takeaway {
-	padding: 8px 24px;
+	padding: var(--space-2) var(--space-6);
 	border-left: 4px solid var(--core-primary);
-	border-radius: 4px;
+	border-radius: var(--radius-xs);
 	background: var(--surface-card);
 	color: var(--core-primary);
 }
@@ -934,7 +936,7 @@
 .ni-hmws {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-hmw-card {
@@ -943,16 +945,16 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 12px;
+	gap: var(--space-3);
 	min-height: 237px;
-	padding: 16px 16px 104px;
-	border-radius: 8px;
+	padding: var(--space-4) var(--space-4) 104px;
+	border-radius: var(--radius-sm);
 	background: var(--surface-card);
 }
 
 .ni-hmw-card__tag {
-	padding: 4px 12px;
-	border-radius: 999px;
+	padding: var(--space-1) var(--space-3);
+	border-radius: var(--radius-tag);
 	background: var(--white);
 	color: var(--ni-red);
 	font-size: var(--fs-small);
@@ -979,8 +981,8 @@
 .ni-story {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 16px 12px;
-	padding: 16px;
+	gap: var(--space-4) var(--space-3);
+	padding: var(--space-4);
 	border: 1px solid var(--ni-ink);
 	border-radius: 10.6px;
 	list-style: none;
@@ -989,7 +991,7 @@
 .ni-story li {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-story img {
@@ -1006,10 +1008,10 @@
 .ni-ideas {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	padding: 16px 24px;
-	border-radius: 12px;
-	background: var(--ni-yellow-50);
+	gap: var(--space-3);
+	padding: var(--space-4) var(--space-6);
+	border-radius: var(--radius-card);
+	background: var(--yellow-50);
 }
 
 .ni-content .ni-ideas h4 {
@@ -1029,28 +1031,28 @@
 .ni-compass {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .ni-compass__card {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
-	padding: 16px;
-	border-radius: 8px;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	border-radius: var(--radius-sm);
 	background: var(--surface-card);
 }
 
 .ni-figure {
 	overflow: hidden;
-	border-radius: 12px;
+	border-radius: var(--radius-card);
 }
 
 /* Features */
 .ni-features {
 	display: flex;
 	flex-direction: column;
-	padding-top: 40px;
+	padding-top: var(--space-10);
 }
 
 .ni-feature {
@@ -1059,7 +1061,7 @@
 	grid-template-areas: "media text";
 	align-items: end;
 	gap: 32px;
-	padding-top: 40px;
+	padding-top: var(--space-10);
 }
 
 .ni-feature__text {
@@ -1067,7 +1069,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-feature__text .ni-h3 {
@@ -1077,7 +1079,7 @@
 
 .ni-feature__text p { color: var(--ni-ink-2); }
 
-.ni-feature__text .ni-flowlink { margin-top: 4px; }
+.ni-feature__text .ni-flowlink { margin-top: var(--space-1); }
 
 /* Video frame, modelled on rachelchen.tech: hairline border, controls on hover */
 .ni-slot {
@@ -1087,7 +1089,7 @@
 	aspect-ratio: 1 / 1;
 	overflow: hidden;
 	border: 1px solid rgba(50, 64, 79, 0.08);
-	border-radius: 12px;
+	border-radius: var(--radius-card);
 	background: var(--ni-video-bg);
 }
 
@@ -1104,7 +1106,7 @@
 	right: 12px;
 	z-index: 1;
 	display: flex;
-	gap: 8px;
+	gap: var(--space-2);
 	opacity: 0;
 	transition: opacity 0.2s;
 }
@@ -1126,7 +1128,7 @@
 	border: 0;
 	border-radius: 50%;
 	background: rgba(0, 0, 0, 0.5);
-	color: #fff;
+	color: var(--white);
 	cursor: pointer;
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
@@ -1163,13 +1165,13 @@
 .ni-reflect {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 24px;
+	gap: var(--space-6);
 }
 
 .ni-reflect div {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .ni-content .ni-reflect h3 {
@@ -1199,13 +1201,13 @@
 		position: static;
 		flex: none;
 		padding: 48px 0 0;
-		gap: 16px;
+		gap: var(--space-4);
 	}
 
 	.ni-toc__items {
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 12px 24px;
+		gap: var(--space-3) var(--space-6);
 	}
 
 	.ni-toc__items a::before { display: none; }
@@ -1238,13 +1240,13 @@
 	}
 
 	.ni-achievement__value {
-		font-size: 26px;
+		font-size: var(--fs-sub);
 		line-height: 36px;
 	}
 
 	.ni-achievement__row {
 		flex-wrap: wrap;
-		padding: 16px 0;
+		padding: var(--space-4) 0;
 	}
 
 	.ni-scope__art { opacity: 0.35; }
@@ -1252,24 +1254,24 @@
 	.ni-toc__items { flex-direction: column; }
 
 	.ni-h2 {
-		font-size: 26px;
+		font-size: var(--fs-sub);
 		line-height: 36px;
 	}
 
 	.ni-h3 {
-		font-size: 20px;
+		font-size: var(--fs-lead);
 		line-height: 28px;
 	}
 
 	.ni-hmw,
 	.ni-highlight {
 		flex-direction: column;
-		padding: 16px;
+		padding: var(--space-4);
 	}
 
 	.ni-content .ni-hmw p,
 	.ni-content .ni-highlight p {
-		font-size: 20px;
+		font-size: var(--fs-lead);
 		line-height: 28px;
 	}
 
@@ -1289,7 +1291,7 @@
 		grid-template-columns: 1fr;
 	}
 
-	.ni-approach { gap: 16px; padding: 16px; }
+	.ni-approach { gap: var(--space-4); padding: var(--space-4); }
 
 	.ni-matrix th:first-child { width: 40%; }
 
@@ -1305,10 +1307,10 @@
 	.ni-feature {
 		grid-template-columns: 1fr;
 		grid-template-areas: "text" "media";
-		gap: 16px;
+		gap: var(--space-4);
 	}
 }
 
 @media (max-width: 480px) {
-	.ni-content .ni-stat__value { font-size: 32px; }
+	.ni-content .ni-stat__value { font-size: var(--fs-section); }
 }
