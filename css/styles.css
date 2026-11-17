@@ -693,52 +693,81 @@ a.more-item__title:hover {
 	overflow: hidden;
 }
 
-.preloader__name {
-	font-family: var(--font-serif);
-	font-weight: 600;
-	font-size: 28px;
-	line-height: 1.2;
-	opacity: 0;
-	transform: translateY(8px);
-	animation: preloader-in 0.5s ease-out 0.05s forwards;
+/* The mark: a triangle, a square and a circle that burst out of one shape,
+   rest, then fold back into a spinning dot. One cycle = 2.8s. */
+.preloader__shapes {
+	position: relative;
+	width: 92px;
+	height: 22px;
 }
 
-.preloader__name em {
-	font-style: italic;
-	color: var(--core-primary);
+.preloader__shape {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 20px;
+	height: 20px;
+	margin: -10px 0 0 -10px;
+	background: var(--core-primary);
+	animation: ld-side 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
+.preloader__shape--tri {
+	--dir: -1;
+	clip-path: polygon(50% 4%, 100% 100%, 0 100%);
+}
+
+.preloader__shape--core {
+	border-radius: 3px;
+	animation-name: ld-core;
+}
+
+.preloader__shape--cir {
+	--dir: 1;
+	border-radius: 50%;
+}
+
+@keyframes ld-side {
+	0%, 10% { transform: translateX(0) scale(0.35); opacity: 0; }
+	28%, 52% { transform: translateX(calc(var(--dir) * 32px)) scale(1); opacity: 1; }
+	64%, 100% { transform: translateX(0) scale(0.35); opacity: 0; }
+}
+
+@keyframes ld-core {
+	0% { transform: rotate(45deg) scale(0.3); }
+	10% { transform: rotate(0deg) scale(1); }
+	52% { transform: rotate(0deg) scale(1); }
+	64% { transform: rotate(45deg) scale(0.8); }
+	78% { transform: rotate(180deg) scale(0.26); }
+	90% { transform: rotate(315deg) scale(0.26); }
+	100% { transform: rotate(405deg) scale(0.3); }
+}
+
+/* Caption lines cross-fade on the same beat as the shapes. */
 .preloader__caption {
-	margin-top: -12px;
+	position: relative;
+	width: 260px;
+	height: 18px;
 	color: var(--text-muted);
 	font-size: var(--fs-small);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
+	line-height: 18px;
+	text-align: center;
+}
+
+.preloader__caption span {
+	position: absolute;
+	inset: 0;
 	opacity: 0;
-	transform: translateY(8px);
-	animation: preloader-in 0.5s ease-out 0.15s forwards;
+	animation: ld-caption 8.4s ease-in-out infinite;
 }
 
-.preloader__track {
-	width: 180px;
-	height: 2px;
-	overflow: hidden;
-	border-radius: 2px;
-	background: var(--border-default);
-	opacity: 0;
-	animation: preloader-in 0.5s ease-out 0.25s forwards;
-}
+.preloader__caption span:nth-child(2) { animation-delay: 2.8s; }
+.preloader__caption span:nth-child(3) { animation-delay: 5.6s; }
 
-.preloader__bar {
-	width: 0;
-	height: 100%;
-	border-radius: 2px;
-	background: var(--core-primary);
-	transition: width 0.3s ease-out;
-}
-
-@keyframes preloader-in {
-	to { opacity: 1; transform: none; }
+@keyframes ld-caption {
+	0% { opacity: 0; transform: translateY(4px); }
+	4%, 28% { opacity: 1; transform: none; }
+	33%, 100% { opacity: 0; transform: translateY(-4px); }
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -760,13 +789,16 @@ a.more-item__title:hover {
 		transform: none;
 	}
 
-	.preloader__name,
-	.preloader__caption,
-	.preloader__track {
-		opacity: 1;
-		transform: none;
+	.preloader__shape,
+	.preloader__caption span {
 		animation: none;
+		opacity: 1;
 	}
+
+	.preloader__shape--tri { transform: translateX(-32px); }
+	.preloader__shape--cir { transform: translateX(32px); }
+	.preloader__caption span:nth-child(2),
+	.preloader__caption span:nth-child(3) { opacity: 0; }
 
 	.reveal {
 		opacity: 1;

@@ -79,11 +79,17 @@
 	/* ---------- Preloader ---------- */
 
 	var preloader = document.getElementById('preloader');
-	var bar = preloader && preloader.querySelector('.preloader__bar');
+
+	function markSeen() {
+		try {
+			sessionStorage.setItem('lt-intro', '1');
+		} catch (e) {}
+	}
 
 	function finish() {
 		if (!root.classList.contains('is-loading')) return;
 		root.classList.remove('is-loading');
+		markSeen();
 		startReveal();
 		window.setTimeout(function () {
 			if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
@@ -92,46 +98,38 @@
 
 	armReveal();
 
-	if (!preloader) {
+	// The head script only adds .is-loading on the first page of a visit; every
+	// page after that skips straight to the content.
+	if (!preloader || !root.classList.contains('is-loading')) {
+		markSeen();
+		root.classList.remove('is-loading');
+		if (preloader && preloader.parentNode) preloader.parentNode.removeChild(preloader);
+		startReveal();
+		return;
+	}
+
+	if (reduce) {
+		// No theatre for anyone who asked for less motion — just get out of the way.
 		finish();
 		return;
 	}
 
 	var started = Date.now();
-	var MIN_VISIBLE = 650;
+	// Long enough to read one burst of the mark, and never longer than MAX_WAIT.
+	var MIN_VISIBLE = 900;
 	var MAX_WAIT = 3500;
-	var progress = 8;
-	var trickle;
-
-	function paint(value) {
-		progress = Math.min(100, value);
-		if (bar) bar.style.width = progress + '%';
-	}
+	var done = false;
 
 	function complete() {
-		window.clearInterval(trickle);
-		paint(100);
+		if (done) return;
+		done = true;
 		var waited = Date.now() - started;
-		window.setTimeout(finish, Math.max(0, MIN_VISIBLE - waited) + 220);
+		window.setTimeout(finish, Math.max(0, MIN_VISIBLE - waited));
 	}
 
-	paint(progress);
+	if (document.readyState === 'complete') complete();
+	else window.addEventListener('load', complete);
 
-	if (reduce) {
-		// No theatre for anyone who asked for less motion — just get out of the way.
-		paint(100);
-		finish();
-	} else {
-		// Creep towards 90% so the bar keeps moving even while a slow image loads.
-		trickle = window.setInterval(function () {
-			if (progress >= 90) return;
-			paint(progress + Math.max(1, (90 - progress) * 0.12));
-		}, 120);
-
-		if (document.readyState === 'complete') complete();
-		else window.addEventListener('load', complete);
-
-		// Never trap the page behind the loader.
-		window.setTimeout(complete, MAX_WAIT);
-	}
+	// Never trap the page behind the loader.
+	window.setTimeout(complete, MAX_WAIT);
 })();

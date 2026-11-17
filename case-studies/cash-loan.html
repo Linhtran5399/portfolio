@@ -12,17 +12,29 @@
 	<link rel="stylesheet" href="../css/styles.css">
 	<link rel="stylesheet" href="../css/cs-cash-loan.css">
 	<script>
-		// Show the loader only when JS can take it away again.
-		var d = document.documentElement;
-		d.classList.add('is-loading');
-		setTimeout(function () { d.classList.remove('is-loading'); }, 6000);
+		// Only on the first page of a visit, and only when JS can take it away again.
+		(function () {
+			var d = document.documentElement;
+			try {
+				if (sessionStorage.getItem('lt-intro')) return;
+			} catch (e) {}
+			d.classList.add('is-loading');
+			setTimeout(function () { d.classList.remove('is-loading'); }, 6000);
+		})();
 	</script>
 </head>
 <body>
 	<div class="preloader" id="preloader" aria-hidden="true">
-		<p class="preloader__name">Linh <em>Tran</em></p>
-		<p class="preloader__caption">Product designer + researcher</p>
-		<div class="preloader__track"><div class="preloader__bar"></div></div>
+		<div class="preloader__shapes">
+			<span class="preloader__shape preloader__shape--tri"></span>
+			<span class="preloader__shape preloader__shape--core"></span>
+			<span class="preloader__shape preloader__shape--cir"></span>
+		</div>
+		<p class="preloader__caption">
+			<span>Warming up the pixels…</span>
+			<span>Pouring the matcha…</span>
+			<span>Lining up the polaroids…</span>
+		</p>
 	</div>
 
 	<header class="topnav">
