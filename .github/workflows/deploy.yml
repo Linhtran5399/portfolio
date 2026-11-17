@@ -28,7 +28,7 @@ jobs:
       - name: Collect site files
         run: |
           mkdir _site
-          cp -r index.html css assets case-studies _site/
+          cp -r index.html about.html css js assets case-studies _site/
           touch _site/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
