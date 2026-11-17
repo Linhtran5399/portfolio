@@ -212,4 +212,63 @@
 			item.addEventListener('dragstart', function (event) { event.preventDefault(); });
 		});
 	}
+	/* ---------- Hero photo stack: hover to shuffle ---------- */
+	var stackPin = document.querySelector('.collage__stack');
+	var deck = stackPin && stackPin.firstElementChild;
+	var REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+	if (deck && deck.animate) {
+		var SHUFFLE_MS = 900;
+		var HOVER_INTERVAL_MS = 1700;
+		var shuffling = false;
+		var hovering = false;
+		var timer = null;
+
+		function shuffle() {
+			if (shuffling) return;
+			var top = deck.lastElementChild;
+			if (!top || top === deck.firstElementChild) return;
+
+			if (REDUCED_MOTION.matches) {
+				deck.insertBefore(top, deck.firstElementChild);
+				return;
+			}
+
+			shuffling = true;
+			// Swing out to the right, drop under the deck halfway, then slide back into place.
+			var animation = top.animate([
+				{ transform: 'none', zIndex: 2, easing: 'cubic-bezier(0.3, 0, 0.2, 1)' },
+				{ transform: 'translate(205px, -30px) rotate(15deg)', zIndex: 2, offset: 0.45 },
+				{ transform: 'translate(205px, -30px) rotate(15deg)', zIndex: -1, offset: 0.46, easing: 'cubic-bezier(0.4, 0, 0.2, 1)' },
+				{ transform: 'none', zIndex: -1 }
+			], { duration: SHUFFLE_MS });
+
+			animation.onfinish = function () {
+				deck.insertBefore(top, deck.firstElementChild);
+				shuffling = false;
+			};
+		}
+
+		function startHover() {
+			if (hovering) return;
+			hovering = true;
+			shuffle();
+			timer = window.setInterval(shuffle, HOVER_INTERVAL_MS);
+		}
+
+		function stopHover() {
+			hovering = false;
+			window.clearInterval(timer);
+			timer = null;
+		}
+
+		stackPin.addEventListener('mouseenter', function () {
+			if (FINE_POINTER.matches) startHover();
+		});
+		stackPin.addEventListener('mouseleave', stopHover);
+		// Touch screens have no hover: tap the photos to flip to the next one.
+		stackPin.addEventListener('click', function () {
+			if (!FINE_POINTER.matches) shuffle();
+		});
+	}
 })();

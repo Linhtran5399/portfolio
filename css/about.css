@@ -319,27 +319,13 @@
 	margin-top: 4px;
 }
 
-/* Photo stack loop — 9.6s, one card flies off every 2.4s */
-.stack__card--1 { animation: stack-fly-1 9.6s ease-in-out infinite; }
-.stack__card--2 { animation: stack-fly-2 9.6s ease-in-out infinite; }
-.stack__card--3 { animation: stack-fly-3 9.6s ease-in-out infinite; }
-
-@keyframes stack-fly-1 {
-	0%, 17.708% { transform: none; opacity: 1; }
-	25%, 92.708% { transform: translate(320px, -36px) rotate(16deg); opacity: 0; }
-	92.709%, 100% { transform: none; opacity: 1; }
+/* Photo stack shuffle — on hover the top card swings out and tucks under the deck (js/about.js) */
+.collage__stack {
+	cursor: pointer;
 }
 
-@keyframes stack-fly-2 {
-	0%, 42.708% { transform: none; opacity: 1; }
-	50%, 92.708% { transform: translate(320px, -36px) rotate(16deg); opacity: 0; }
-	92.709%, 100% { transform: none; opacity: 1; }
-}
-
-@keyframes stack-fly-3 {
-	0%, 67.708% { transform: none; opacity: 1; }
-	75%, 92.708% { transform: translate(320px, -36px) rotate(16deg); opacity: 0; }
-	92.709%, 100% { transform: none; opacity: 1; }
+.stack__card {
+	will-change: transform;
 }
 
 /* ---------- "say hi" sticker ---------- */
@@ -1182,9 +1168,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.stack__card--1,
-	.stack__card--2,
-	.stack__card--3,
 	.sayhi__sticker {
 		animation: none !important;
 	}
