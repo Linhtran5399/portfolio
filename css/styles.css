@@ -17,6 +17,14 @@
 	--tag-purple-bg: #ede8f6;
 	--tag-purple-fg: #5b3ea8;
 
+	--black: #000;
+	--text-title: #171717;
+	--yellow-50: #fffbdc;
+	--yellow-200: #fff299;
+	--yellow-hl: #f5de65;
+	--indigo-100: #e0eaff;
+	--highlight-yellow: #fde68a;
+
 	--font-serif: "Playfair Display", Georgia, serif;
 	--font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -31,11 +39,27 @@
 	--fs-micro: 10px;
 	--fs-metric: 19px;
 	--fs-stat: 48px;
+	--fs-heading: 40px;
+	--fs-section: 32px;
+	--fs-sub: 26px;
+	--fs-title: 24px;
+	--fs-lead: 20px;
+	--fs-caption: 11px;
 
 	--radius-card: 12px;
 	--radius-bento: 16px;
 	--radius-cta: 40px;
+	--radius-sm: 8px;
+	--radius-xs: 4px;
 	--radius-tag: 9999px;
+
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-6: 24px;
+	--space-10: 40px;
+	--space-20: 80px;
 
 	--page-pad: 80px;
 	--content-width: 1120px;
@@ -100,8 +124,8 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 16px;
-	padding: 24px 32px;
+	gap: var(--space-4);
+	padding: var(--space-6) 32px;
 	background: rgba(255, 255, 255, 0.8);
 	backdrop-filter: blur(6px);
 	-webkit-backdrop-filter: blur(6px);
@@ -113,12 +137,12 @@ a {
 .topnav__title,
 .topnav__links a,
 .topnav__side {
-	padding-bottom: 4px;
+	padding-bottom: var(--space-1);
 }
 
 .topnav__links {
 	display: flex;
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .topnav__links a {
@@ -151,7 +175,7 @@ a {
 	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	gap: 8px;
+	gap: var(--space-2);
 	padding: 32px;
 	border-top: 1px solid var(--border-default);
 	color: var(--text-secondary);
@@ -160,16 +184,16 @@ a {
 }
 
 .footer__by {
-	padding: 8px 0;
+	padding: var(--space-2) 0;
 }
 
 .footer__links {
 	display: flex;
-	gap: 8px;
+	gap: var(--space-2);
 }
 
 .footer__links a {
-	padding: 8px;
+	padding: var(--space-2);
 	transition: color 0.2s;
 }
 
@@ -182,7 +206,7 @@ a {
 	display: inline-flex;
 	align-items: center;
 	padding: 3px 9px;
-	border-radius: 100px;
+	border-radius: var(--radius-tag);
 	font-size: var(--fs-micro);
 	font-weight: 600;
 	line-height: 12px;
@@ -221,12 +245,12 @@ a {
 .hero {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 24px;
+	gap: var(--space-6);
 }
 
 .hero__heading {
 	flex: 0 1 596px;
-	padding: 80px 0;
+	padding: var(--space-20) 0;
 	font-size: var(--fs-display);
 	line-height: var(--lh-display);
 }
@@ -240,15 +264,15 @@ a {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	padding: 80px 0 80px 48px;
+	padding: var(--space-20) 0 var(--space-20) 48px;
 	list-style: none;
 }
 
 .timeline li {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	padding: 12px 0 13px;
+	gap: var(--space-2);
+	padding: var(--space-3) 0 13px;
 	border-bottom: 1px solid transparent;
 }
 
@@ -271,7 +295,7 @@ a {
 	display: grid;
 	grid-template-columns: 268px 1fr 268px;
 	grid-template-rows: 178.72px 139px;
-	gap: 16px;
+	gap: var(--space-4);
 }
 
 .bento__box {
@@ -284,7 +308,7 @@ a {
 	display: flex;
 	align-items: flex-end;
 	justify-content: flex-end;
-	padding: 16px;
+	padding: var(--space-4);
 }
 
 .bento__folder img {
@@ -303,7 +327,7 @@ a {
 
 .pill {
 	position: relative;
-	padding: 4px 12px;
+	padding: var(--space-1) var(--space-3);
 	border-radius: var(--radius-tag);
 	background: var(--surface-bg);
 	backdrop-filter: blur(2px);
@@ -313,7 +337,7 @@ a {
 }
 
 .bento__current {
-	background: #fde68a;
+	background: var(--highlight-yellow);
 }
 
 .bento__current img {
@@ -328,7 +352,7 @@ a {
 	grid-row: 1 / span 2;
 	display: flex;
 	align-items: flex-end;
-	padding: 8px;
+	padding: var(--space-2);
 }
 
 .bento__portrait img {
@@ -343,7 +367,7 @@ a {
 	position: relative;
 	display: block;
 	width: 100%;
-	padding: 12px;
+	padding: var(--space-3);
 	border-radius: var(--radius-card);
 	background: var(--text-primary);
 	backdrop-filter: blur(6px);
@@ -355,7 +379,7 @@ a {
 }
 
 .btn-dark:hover {
-	background: #000;
+	background: var(--black);
 }
 
 .bento__stat {
@@ -363,13 +387,13 @@ a {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 24px;
+	padding: var(--space-6);
 	background: var(--bento-green);
 	text-align: center;
 }
 
 .bento__stat strong {
-	padding-bottom: 8px;
+	padding-bottom: var(--space-2);
 	font-size: var(--fs-stat);
 	line-height: 48px;
 }
@@ -383,7 +407,7 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 24px;
+	padding: var(--space-6);
 	background: var(--text-primary);
 	color: var(--white);
 	font-size: var(--fs-h1);
@@ -397,7 +421,7 @@ a {
 
 /* ---------- Home: selected works ---------- */
 .section-title {
-	padding-top: 80px;
+	padding-top: var(--space-20);
 	font-size: var(--fs-display);
 	line-height: var(--lh-display);
 	text-align: center;
@@ -406,7 +430,7 @@ a {
 .work-card {
 	display: flex;
 	align-items: center;
-	gap: 40px;
+	gap: var(--space-10);
 	padding: 44px 0;
 }
 
@@ -418,7 +442,7 @@ a {
 .work-card__meta {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: var(--space-2);
 	padding-bottom: 14px;
 	color: var(--text-secondary);
 	font-size: var(--fs-small);
@@ -433,7 +457,7 @@ a {
 
 .work-card__desc {
 	max-width: 520px;
-	margin: 12px 0 22px;
+	margin: var(--space-3) 0 22px;
 	color: var(--text-secondary);
 	line-height: 1.65;
 }
@@ -487,7 +511,7 @@ a.work-card:hover .work-card__title {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	padding: 24px 22px;
+	padding: var(--space-6) 22px;
 	background: var(--surface-card);
 	border: 1px solid var(--border-alt);
 }
@@ -518,8 +542,8 @@ a.more-item__title:hover {
 
 /* ---------- Home: CTA ---------- */
 .cta {
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-top: var(--space-20);
+	padding-bottom: var(--space-20);
 }
 
 .cta a {
@@ -576,7 +600,7 @@ a.more-item__title:hover {
 
 	.topnav {
 		flex-wrap: wrap;
-		padding: 16px;
+		padding: var(--space-4);
 	}
 
 	.topnav__title {
@@ -588,11 +612,11 @@ a.more-item__title:hover {
 	}
 
 	.hero__heading {
-		padding: 40px 0 0;
+		padding: var(--space-10) 0 0;
 	}
 
 	.timeline {
-		padding: 0 0 40px;
+		padding: 0 0 var(--space-10);
 	}
 
 	.timeline__years {
@@ -630,7 +654,7 @@ a.more-item__title:hover {
 	.footer {
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 24px 16px;
+		padding: var(--space-6) var(--space-4);
 	}
 
 	.footer__links {
