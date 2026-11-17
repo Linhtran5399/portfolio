@@ -11,8 +11,20 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
 	<link rel="stylesheet" href="../css/styles.css">
 	<link rel="stylesheet" href="../css/cs-nami-insurance.css">
+	<script>
+		// Show the loader only when JS can take it away again.
+		var d = document.documentElement;
+		d.classList.add('is-loading');
+		setTimeout(function () { d.classList.remove('is-loading'); }, 6000);
+	</script>
 </head>
 <body>
+	<div class="preloader" id="preloader" aria-hidden="true">
+		<p class="preloader__name">Linh <em>Tran</em></p>
+		<p class="preloader__caption">Product designer + researcher</p>
+		<div class="preloader__track"><div class="preloader__bar"></div></div>
+	</div>
+
 	<header class="topnav">
 		<a class="topnav__title" href="../index.html">Linh Tran •︎ Product designer + Researcher</a>
 		<nav class="topnav__links" aria-label="Main">
@@ -787,5 +799,6 @@
 			slots.forEach(function (slot) { io.observe(slot.querySelector('video')); });
 		})();
 	</script>
+	<script src="../js/loading.js" defer></script>
 </body>
 </html>
