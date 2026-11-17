@@ -319,6 +319,21 @@
 	margin-top: 4px;
 }
 
+/* Mouse parallax — js/about.js eases --mx/--my (-1…1) on .collage; each layer drifts by its depth in px */
+.collage > * {
+	translate: calc(var(--mx, 0) * var(--depth, 0) * 1px) calc(var(--my, 0) * var(--depth, 0) * 1px);
+}
+
+.collage__grid-paper { --depth: 6; }
+.collage__back-2 { --depth: 9; }
+.collage__back-1 { --depth: 11; }
+.collage__stack { --depth: 14; }
+.collage__note { --depth: 17; }
+.collage__ticket { --depth: 19; }
+.sayhi { --depth: 20; }
+.collage__charm { --depth: 22; }
+.collage__matcha { --depth: 24; }
+
 /* Photo stack shuffle — on hover the top card swings out and tucks under the deck (js/about.js) */
 .collage__stack {
 	cursor: pointer;

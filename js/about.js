@@ -271,4 +271,44 @@
 			if (!FINE_POINTER.matches) shuffle();
 		});
 	}
+	/* ---------- Hero collage: objects drift with the mouse ---------- */
+	var hero = document.querySelector('.about-hero');
+	var collage = document.querySelector('[data-scale-target="collage"]');
+
+	if (hero && collage && FINE_POINTER.matches && !REDUCED_MOTION.matches) {
+		var target = { x: 0, y: 0 };
+		var current = { x: 0, y: 0 };
+		var frameId = null;
+
+		function tick() {
+			current.x += (target.x - current.x) * 0.08;
+			current.y += (target.y - current.y) * 0.08;
+			collage.style.setProperty('--mx', current.x.toFixed(4));
+			collage.style.setProperty('--my', current.y.toFixed(4));
+
+			if (Math.abs(target.x - current.x) < 0.001 && Math.abs(target.y - current.y) < 0.001) {
+				frameId = null;
+				return;
+			}
+			frameId = window.requestAnimationFrame(tick);
+		}
+
+		function nudge() {
+			if (frameId === null) frameId = window.requestAnimationFrame(tick);
+		}
+
+		hero.addEventListener('mousemove', function (event) {
+			var rect = collage.getBoundingClientRect();
+			var clamp = function (v) { return Math.max(-1, Math.min(1, v)); };
+			target.x = clamp((event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2));
+			target.y = clamp((event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2));
+			nudge();
+		});
+
+		hero.addEventListener('mouseleave', function () {
+			target.x = 0;
+			target.y = 0;
+			nudge();
+		});
+	}
 })();
