@@ -1,18 +1,18 @@
 # portfolio
 
-Linh Tran's portfolio: a static site (plain HTML/CSS) built from the Figma file "Portfolio". See `README.md`.
+Linh Tran's portfolio: a static site (plain HTML/CSS) built from the Figma file "Portfolio" (https://www.figma.com/design/eJlZ8GqdqBDugufLsQwNG0/Portfolio, file key `eJlZ8GqdqBDugufLsQwNG0`). Figma is the design source of truth; read it with the Figma MCP tools. See `README.md`.
 
 ## UI skills
 
 ### Visual verification
-Playwright is installed (devDependency) for screenshot and animation verification. Chromium is preinstalled at `/opt/pw-browsers` in the cloud container.
+Playwright is installed (devDependency) for screenshot and animation verification. A fresh cloud checkout has no `node_modules`: run `npm ci` first. Chromium is preinstalled at `/opt/pw-browsers` in the cloud container.
 This is a static site. Serve it with `python3 -m http.server 8000` and use `http://localhost:8000`. **Skill scripts default to port 3000, so override the URL to port 8000.**
 Run `npx playwright install chromium` if screenshots fail elsewhere.
 The installed Playwright (1.64) expects a newer Chromium build than the cloud container preinstalls. Launch with `chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })` instead of downloading another.
 Very long pages (e.g. `case-studies/cash-loan.html` at 375px, ~17,000px tall) occasionally render differently on the first pass. Retry a screenshot comparison before treating a mismatch as a regression.
 
 ### Accessibility scanning
-axe-core is installed. /a11y uses it for programmatic WCAG 2.1 AA scanning. Known gaps found at setup: no skip-to-main link on `index.html` or the case studies (only in-page TOC "skip" links); `--fs-micro` is 10px.
+axe-core is installed. /a11y uses it for programmatic WCAG 2.1 AA scanning. Global `prefers-reduced-motion` rule lives in `css/styles.css` (stops transitions and shortens keyframe animations). Known gaps found at setup: no skip-to-main link on `index.html` or the case studies (only in-page TOC "skip" links); `--fs-micro` is 10px.
 
 ### Token home
 Design tokens live in `css/styles.css` (`:root`). /tokens reads and writes here. Shared colour, radius, type-size and spacing tokens now live only in `styles.css`; each `cs-*.css` keeps only its page-specific tokens (widths, section padding, a few component colours).
@@ -35,3 +35,4 @@ Visual direction is documented in `DESIGN-BRIEF.md`. All UI skills read this bef
 | /a11y | Fix accessibility violations (WCAG 2.1 AA) |
 | /tokens | Find hardcoded design values and replace with tokens |
 | /landing | Optimise a marketing or product landing page for conversion |
+| /impeccable | Design critique, audit and targeted moves (`critique`, `audit`, `bolder`, `typeset`…). Its design-check hook runs after every Edit/Write |
