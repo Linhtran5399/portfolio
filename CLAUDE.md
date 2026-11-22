@@ -15,7 +15,7 @@ Very long pages (e.g. `case-studies/cash-loan.html` at 375px, ~17,000px tall) oc
 axe-core is installed. /a11y uses it for programmatic WCAG 2.1 AA scanning. Global `prefers-reduced-motion` rule lives in `css/styles.css` (stops transitions and shortens keyframe animations). Known gaps found at setup: no skip-to-main link on `index.html` or the case studies (only in-page TOC "skip" links); `--fs-micro` is 10px.
 
 ### Token home
-Design tokens live in `css/styles.css` (`:root`). /tokens reads and writes here. Shared colour, radius, type-size and spacing tokens now live only in `styles.css`; each `cs-*.css` keeps only its page-specific tokens (widths, section padding, a few component colours).
+Design tokens live in `css/styles.css` (`:root`). /tokens reads and writes here. Shared colour, radius, type-size and spacing tokens now live only in `styles.css`; each `cs-*.css` keeps only its page-specific tokens (widths, section padding, a few component colours). Exception: `case-studies/nami-futures.html` reuses the cash-loan template, so it loads `cs-cash-loan.css` (`cl-*` classes) plus a small `cs-nami-futures.css`; changes to `cs-cash-loan.css` affect both pages.
 **Responsive tokens:** `--fs-display`, `--lh-display`, `--fs-h3`, `--lh-h2` and `--page-pad` are overridden inside `@media` blocks in `styles.css`. Never point a fixed-size value at them; use a fixed token such as `--fs-section` (32px) instead.
 
 ### Internationalisation

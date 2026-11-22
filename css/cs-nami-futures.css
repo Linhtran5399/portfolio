@@ -1,0 +1,303 @@
+/* Case study: Nami Futures Trading Revamp
+   Builds on cs-cash-loan.css (the shared case-study template, `cl-*` classes).
+   Only what this story adds lives here; shared tokens live in styles.css. */
+
+.nf {
+	--nf-phone-radius: 20px;
+	--nf-phone-border: #0f1e29;
+}
+
+/* ---------- Intro ---------- */
+.nf-shipped {
+	padding-top: var(--space-3);
+	padding-bottom: var(--space-3);
+	font-weight: 400;
+}
+
+.nf-shipped p:first-child { font-weight: 600; }
+
+/* ---------- Chips (features, exchanges) ---------- */
+.nf-features {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.nf-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+	list-style: none;
+	padding: 0;
+}
+
+.nf .nf-chips { padding-left: 0; }
+
+.nf-chips li {
+	padding: 6px var(--space-3);
+	border-radius: var(--radius-tag);
+	background: var(--indigo-100);
+	color: var(--text-primary);
+	font-size: var(--fs-body);
+	font-weight: 600;
+	line-height: var(--lh-body);
+}
+
+.nf-chips--plain li {
+	border: 1px solid var(--border-default);
+	background: var(--white);
+	font-weight: 500;
+}
+
+/* Four research patterns: 2 × 2 instead of the template's 3 columns. */
+.nf-cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* ---------- Phone screens ---------- */
+.nf-phone {
+	display: block;
+	width: 100%;
+	height: auto;
+	border: 1px solid var(--nf-phone-border);
+	border-radius: var(--nf-phone-radius);
+}
+
+.nf-phones {
+	display: grid;
+	gap: var(--space-4);
+	align-items: start;
+}
+
+.nf-phones figure,
+.nf-variants figure {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.nf-phones figcaption,
+.nf-variants figcaption,
+.nf-wide figcaption {
+	color: var(--text-secondary);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+	text-align: center;
+}
+
+.nf-phones--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nf-phones--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* 03: the two legacy phones sit where the template has one. */
+.nf .cl-old__row { align-items: flex-start; }
+
+.cl-old .nf-phones--pair {
+	flex: 0 0 376px;
+	width: 376px;
+}
+
+/* ---------- 04 Theme 1: card hierarchy ---------- */
+.nf-stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	list-style: none;
+}
+
+.nf .nf-stack { padding-left: 0; }
+
+.nf-stack__row {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-4);
+	padding: var(--space-3) var(--space-4);
+	border-radius: var(--radius-sm);
+	background: var(--surface-card);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+}
+
+.nf-stack__key {
+	flex: 0 0 84px;
+	color: var(--text-secondary);
+	font-size: var(--fs-caption);
+	font-weight: 700;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+.nf-stack__row--lead {
+	font-size: var(--fs-lead);
+	font-weight: 700;
+	line-height: 28px;
+}
+
+.nf-stack__row--lead .nf-stack__key,
+.nf-stack__row--exit .nf-stack__key { color: var(--core-primary); }
+
+.nf-stack__row--exit { font-weight: 600; }
+
+.nf-compare {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--space-6);
+	align-items: start;
+	padding: var(--space-6);
+	border-radius: var(--radius-card);
+	background: var(--surface-card);
+}
+
+.nf-compare__item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.nf-compare__item img {
+	width: 100%;
+	height: auto;
+	border-radius: var(--radius-card);
+}
+
+.nf-density .nf-phones--pair {
+	max-width: 520px;
+	margin: 0 auto;
+}
+
+.nf-wide {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.nf-principle {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+	font-weight: 600;
+}
+
+.nf-principle__key {
+	color: var(--text-secondary);
+	font-size: var(--fs-caption);
+	font-weight: 700;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+
+/* ---------- 04 Theme 2: order endings ---------- */
+.nf-ends {
+	display: flex;
+	flex-direction: column;
+	border-radius: var(--radius-card);
+	background: var(--surface-card);
+	padding: var(--space-2) var(--space-4);
+}
+
+.nf-ends__row {
+	display: grid;
+	grid-template-columns: 140px minmax(0, 1fr);
+	gap: var(--space-4);
+	padding: var(--space-3) 0;
+	border-bottom: 1px solid var(--border-default);
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
+}
+
+.nf-ends__row:last-child { border-bottom: 0; }
+
+.nf-ends dt { font-weight: 700; }
+
+.nf-variants {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--space-4);
+	align-items: start;
+}
+
+.nf-split {
+	display: flex;
+	align-items: center;
+	gap: var(--space-10);
+	padding: var(--space-6);
+	border-radius: var(--radius-card);
+	background: var(--surface-card);
+}
+
+.nf-split__img {
+	flex: 0 0 240px;
+	width: 240px;
+}
+
+.nf-split__text {
+	flex: 1 1 0;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+/* ---------- 05 Reflection ---------- */
+.nf-callouts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.nf-closing {
+	font-size: var(--fs-lead);
+	line-height: 32px;
+}
+
+/* ---------- Responsive ---------- */
+@container (max-width: 760px) {
+	.nf-variants { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.nf-callouts--3 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+	.cl-old .nf-phones--pair {
+		flex: none;
+		width: 100%;
+	}
+
+	.nf-cards--2,
+	.nf-compare,
+	.nf-phones--3 {
+		grid-template-columns: 1fr;
+	}
+
+	.nf-phones--3 figure,
+	.nf-compare__item {
+		width: min(280px, 100%);
+		margin: 0 auto;
+	}
+
+	.nf-compare__item { width: 100%; }
+
+	.nf-compare { padding: var(--space-4); }
+
+	.nf-split {
+		flex-direction: column;
+		align-items: stretch;
+		gap: var(--space-4);
+		padding: var(--space-4);
+	}
+
+	.nf-split__img {
+		align-self: center;
+		width: min(240px, 100%);
+		flex-basis: auto;
+	}
+
+	.nf-ends__row {
+		grid-template-columns: 1fr;
+		gap: var(--space-1);
+	}
+
+	.nf-stack__row {
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.nf-stack__key { flex-basis: auto; }
+
+	.nf-closing {
+		font-size: var(--fs-h1);
+		line-height: 26px;
+	}
+}

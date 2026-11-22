@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nami Futures Trading Revamp — Linh Tran</title>
+	<meta name="description" content="How I redesigned the Nami Exchange futures trading screen, position cards, order history and edit flows for a derivatives product that was outgrowing them.">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁︎</text></svg>">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/cs-cash-loan.css">
+	<link rel="stylesheet" href="../css/cs-nami-futures.css">
+	<script>
+		// Only on the first page of a visit, and only when JS can take it away again.
+		(function () {
+			var d = document.documentElement;
+			try {
+				if (sessionStorage.getItem('lt-intro')) return;
+			} catch (e) {}
+			d.classList.add('is-loading');
+			setTimeout(function () { d.classList.remove('is-loading'); }, 6000);
+		})();
+	</script>
+</head>
+<body>
+	<div class="preloader" id="preloader" aria-hidden="true">
+		<div class="preloader__shapes">
+			<span class="preloader__shape preloader__shape--tri"></span>
+			<span class="preloader__shape preloader__shape--core"></span>
+			<span class="preloader__shape preloader__shape--cir"></span>
+		</div>
+		<p class="preloader__caption">
+			<span>Warming up the pixels…</span>
+			<span>Pouring the matcha…</span>
+			<span>Lining up the polaroids…</span>
+		</p>
+	</div>
+
+	<header class="topnav">
+		<a class="topnav__title" href="../index.html">Linh Tran •︎ Product designer + Researcher</a>
+		<nav class="topnav__links" aria-label="Main">
+			<a href="../index.html" aria-current="page">Work</a>
+			<a href="../about.html">About</a>
+			<a href="https://drive.google.com/file/d/1SiFD5hRRn5Zo-m3cfYQbiUqQp8fXPkqI/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+		</nav>
+		<span class="topnav__side" aria-hidden="true"></span>
+	</header>
+
+	<main class="cl nf">
+		<!-- ===== Overall ===== -->
+		<section class="wrap cl-intro" aria-labelledby="nf-title">
+			<h1 class="cl-intro__title serif" id="nf-title">Nami Futures Trading Revamp: How I redesigned a trading screen for a product that was outgrowing it</h1>
+
+			<div class="cl-intro__thumb">
+				<img src="../assets/nami-futures/hero.webp" alt="Three revamped Nami Futures screens: the trading screen with chart and order form, the Positions tab with a position card leading with PnL and a stop loss and take profit block, and a closed order's detail screen" width="1120" height="559">
+			</div>
+
+			<div class="cl-overview">
+				<div class="cl-context">
+					<p class="cl-context__lead"><strong>What I worked from:</strong> When a product grows new features, its main surface has two choices. Cram them in, or rethink what gets priority. For futures traders, the priority is simple. They watch their position and they watch their exit. Everything else is reference. The screen has to leave room for that fact.</p>
+
+					<div class="cl-achieve">
+						<div class="cl-achieve__row">
+							<span class="cl-achieve__value">6 features</span>
+							<span class="cl-achieve__label">New product features absorbed</span>
+						</div>
+						<div class="cl-achieve__row">
+							<span class="cl-achieve__value">4 surfaces</span>
+							<span class="cl-achieve__label">Futures surfaces restructured</span>
+						</div>
+						<div class="cl-achieve__row">
+							<span class="cl-achieve__value">6 exchanges</span>
+							<span class="cl-achieve__label">Studied side by side before designing</span>
+						</div>
+					</div>
+
+					<div class="cl-shipped nf-shipped">
+						<p>Shipped 2023.</p>
+						<p><mark>No outcome metrics:</mark> they weren't instrumented when I shipped, and I've since moved on from Nami. What I can show is the craft and what I'd do differently today.</p>
+					</div>
+				</div>
+
+				<div class="cl-role">
+					<div class="cl-role__group">
+						<h2 class="cl-role__head">My role</h2>
+						<div>
+							<p>Product Designer. Within a broader app revamp led by the Product Design Lead, I owned the craft of the Futures section:</p>
+							<ul>
+								<li>Trading screen</li>
+								<li>Position cards</li>
+								<li>Edit flows</li>
+								<li>Order history</li>
+							</ul>
+						</div>
+					</div>
+					<div class="cl-role__group">
+						<h2 class="cl-role__head">Team</h2>
+						<ul>
+							<li>Product Design Lead</li>
+							<li>Product Manager</li>
+							<li>Engineering</li>
+						</ul>
+					</div>
+					<div class="cl-role__group">
+						<h2 class="cl-role__head">Timeline &amp; platform</h2>
+						<ul>
+							<li><strong>Timeline:</strong> 2023</li>
+							<li><strong>Platform:</strong> Nami Exchange, a Vietnamese crypto derivatives app</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== Content: TOC + body ===== -->
+		<div class="wrap cl-content">
+			<aside class="cl-toc" aria-label="On this page">
+				<ol class="cl-toc__list">
+					<li><a href="#brief" class="is-active">The brief</a></li>
+					<li><a href="#research">Research</a></li>
+					<li><a href="#before">The before</a></li>
+					<li><a href="#design">Design</a></li>
+					<li><a href="#reflection">Reflection</a></li>
+				</ol>
+				<div class="cl-toc__card">
+					<p class="cl-toc__time">📒 Reading time: 5 minutes</p>
+					<p class="cl-toc__skip"><a href="#design">Skip to the craft work →</a></p>
+				</div>
+			</aside>
+
+			<article class="cl-body">
+				<!-- 01 -->
+				<section class="cl-section" id="brief" aria-labelledby="brief-h">
+					<header class="cl-head">
+						<p class="cl-eyebrow">01. The brief</p>
+						<h2 class="cl-h2 serif" id="brief-h">The brief behind <em class="cl-em">the brief.</em></h2>
+					</header>
+					<p>The CEO wanted the app to look modern. Underneath that, Nami's product team was about to add real depth to the derivatives experience. The visual refresh was the surface layer.</p>
+
+					<div class="nf-features">
+						<p class="cl-label">Coming onto the futures surfaces</p>
+						<ul class="nf-chips">
+							<li>Cross Futures</li>
+							<li>Partial close</li>
+							<li>DCA</li>
+							<li>Funding Rate</li>
+							<li>Portfolio statistics</li>
+							<li>Trading Rules</li>
+							<li>Fee discount tokens</li>
+						</ul>
+					</div>
+
+					<div class="cl-hmw">
+						<img src="../assets/cash-loan/v2/icon-target.png" alt="" width="96" height="96" loading="lazy">
+						<p class="serif">How might the futures surfaces absorb a maturing product without breaking the muscle memory of traders already using it?</p>
+					</div>
+
+					<p>I didn't frame the work this way at the time. I took the brief and went straight to the canvas. Today, I would walk back from the brief to the product roadmap first.</p>
+				</section>
+
+				<!-- 02 -->
+				<section class="cl-section" id="research" aria-labelledby="research-h">
+					<header class="cl-head">
+						<p class="cl-eyebrow">02. Research</p>
+						<h2 class="cl-h2 serif" id="research-h">Mature exchanges solve density with <em class="cl-em">hierarchy.</em></h2>
+					</header>
+					<p>I studied six exchanges side by side. Four patterns held across all of them.</p>
+
+					<div class="cl-step">
+						<p class="cl-tag">#Competitor teardown</p>
+						<ul class="nf-chips nf-chips--plain" aria-label="Exchanges studied">
+							<li>Binance</li>
+							<li>OKX</li>
+							<li>Bybit</li>
+							<li>MEXC</li>
+							<li>KuCoin</li>
+							<li>BingX</li>
+						</ul>
+						<div class="cl-cards nf-cards--2">
+							<div class="cl-card">
+								<span class="cl-card__tag">🔵 Pattern 1</span>
+								<p class="cl-card__title">Density was solved by hierarchy, not minimalism.</p>
+								<p>They didn't reduce the data. They encoded a hierarchy so the eye knew where to land.</p>
+							</div>
+							<div class="cl-card">
+								<span class="cl-card__tag">🔵 Pattern 2</span>
+								<p class="cl-card__title">Color carried meaning that never broke.</p>
+								<p>Green and red for direction, yellow for warning, neutral grays for resting state. Same hue, same meaning, every surface.</p>
+							</div>
+							<div class="cl-card">
+								<span class="cl-card__tag">🔵 Pattern 3</span>
+								<p class="cl-card__title">Position cards led with PnL and exit prices.</p>
+								<p>Live, decision-driving information at the top; reference data below.</p>
+							</div>
+							<div class="cl-card">
+								<span class="cl-card__tag">🔵 Pattern 4</span>
+								<p class="cl-card__title">Order history was a record of decisions, not data.</p>
+								<p>Closed orders looked different by reason. A take profit close didn't look like a liquidation.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 03 -->
+				<section class="cl-section" id="before" aria-labelledby="before-h">
+					<header class="cl-head">
+						<p class="cl-eyebrow">03. The before</p>
+						<h2 class="cl-h2 serif" id="before-h">Reading the before <em class="cl-em">with hindsight.</em></h2>
+					</header>
+					<p>Three things were breaking down. I can name them now, even though I couldn't put all of it into words as a junior.</p>
+
+					<figure class="cl-old">
+						<figcaption class="cl-label">Legacy Futures UI</figcaption>
+						<div class="cl-old__row">
+							<div class="nf-phones nf-phones--pair">
+								<img class="nf-phone" src="../assets/nami-futures/before-trading.webp" alt="Legacy trading screen under a VNDC tab: chart, order form, then position cards with eight stats in a flat two-column grid" width="390" height="1070" loading="lazy">
+								<img class="nf-phone" src="../assets/nami-futures/before-history.webp" alt="Legacy order history: every closed order shown as the same card with the same eight stats, whether it hit take profit, was cancelled or lost money" width="390" height="921" loading="lazy">
+							</div>
+							<ol class="cl-callouts">
+								<li class="cl-callout">
+									<span class="cl-callout__num" aria-hidden="true">01</span>
+									<div>
+										<p class="cl-callout__title">Every stat looked equally important</p>
+										<p class="cl-callout__desc">Eight data points in a flat grid. Scanning a list of positions meant eight reads per card.</p>
+									</div>
+								</li>
+								<li class="cl-callout">
+									<span class="cl-callout__num" aria-hidden="true">02</span>
+									<div>
+										<p class="cl-callout__title">Every closed order looked the same</p>
+										<p class="cl-callout__desc">A take profit, a liquidation and a DCA event were identical rows. The list stored trades; it didn't help traders learn from them.</p>
+									</div>
+								</li>
+								<li class="cl-callout">
+									<span class="cl-callout__num" aria-hidden="true">03</span>
+									<div>
+										<p class="cl-callout__title">No room for what was coming</p>
+										<p class="cl-callout__desc">Funding Rate and Trading Rules had no home. The page sat as a tab under “VNDC” with no Futures identity.</p>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</figure>
+				</section>
+
+				<!-- 04 -->
+				<section class="cl-section" id="design" aria-labelledby="design-h">
+					<header class="cl-head">
+						<p class="cl-eyebrow">04. Design</p>
+						<h2 class="cl-h2 serif" id="design-h">Three themes behind the <em class="cl-em">craft work.</em></h2>
+					</header>
+					<p>Each theme answers one of the breakdowns: what traders watch, what happened to a trade, and where new concepts like Funding Rate live.</p>
+
+					<!-- Theme 1 -->
+					<div class="cl-sub">
+						<div class="cl-sub__info">
+							<h3 class="cl-h3">1. Elevate what traders watch. Demote what they reference. Let them pick density.</h3>
+							<p>On the new position card, PnL became the largest element, color-coded at a size that reads instantly. Stop loss and take profit moved out of the stats grid into their own highlighted block, with both price and percentage from entry. The other six stats compressed into a smaller three-column grid below.</p>
+						</div>
+						<ol class="nf-stack" aria-label="Position card hierarchy, top to bottom">
+							<li class="nf-stack__row nf-stack__row--lead"><span class="nf-stack__key">Watch</span><span>PnL, largest and color-coded</span></li>
+							<li class="nf-stack__row nf-stack__row--exit"><span class="nf-stack__key">Exit</span><span>Stop loss &amp; take profit: price and % from entry</span></li>
+							<li class="nf-stack__row"><span class="nf-stack__key">Reference</span><span>Six remaining stats in a compact 3-column grid</span></li>
+						</ol>
+						<p>The list also gained a density toggle: a global <strong>Đầy đủ</strong> (Full) and <strong>Rút gọn</strong> (Compact), with per-card chevrons inside Đầy đủ. The default lands on the lighter mode.</p>
+						<div class="nf-compare">
+							<figure class="nf-compare__item">
+								<figcaption class="cl-label">Before</figcaption>
+								<img src="../assets/nami-futures/card-before.webp" alt="Legacy position card: PnL in the corner and eight stats in a flat grid, with stop loss and take profit buried at the bottom right" width="390" height="240" loading="lazy">
+							</figure>
+							<figure class="nf-compare__item">
+								<figcaption class="cl-label">After</figcaption>
+								<img src="../assets/nami-futures/card-after.webp" alt="Revamped position card: PnL large at the top right, a highlighted block for stop loss and take profit with price and percentage, then six stats in a compact three-column grid" width="390" height="355" loading="lazy">
+							</figure>
+						</div>
+						<div class="nf-density">
+							<div class="nf-phones nf-phones--pair">
+								<figure>
+									<img class="nf-phone" src="../assets/nami-futures/after-compact.webp" alt="Positions tab in Rút gọn (Compact) mode: each position collapsed to pair, side and PnL" width="390" height="844" loading="lazy">
+									<figcaption>Rút gọn (Compact)</figcaption>
+								</figure>
+								<figure>
+									<img class="nf-phone" src="../assets/nami-futures/after-full.webp" alt="Positions tab in Đầy đủ (Full) mode: the first position expanded with its exit block, stats and actions" width="390" height="844" loading="lazy">
+									<figcaption>Đầy đủ (Full)</figcaption>
+								</figure>
+							</div>
+						</div>
+						<figure class="nf-wide">
+							<img class="cl-img" src="../assets/nami-futures/card-states.webp" alt="Position card states side by side: expanded, collapsed to one row, expanded without a chevron, and a variant with an insurance entry" width="1659" height="437" loading="lazy">
+							<figcaption>Card states: expanded, collapsed per card, and a variant with the insurance entry.</figcaption>
+						</figure>
+						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>Traders care about how they're doing now and where they're getting out. Everything else is reference. Reorder by attention, and let traders choose density.</p>
+					</div>
+
+					<!-- Theme 2 -->
+					<div class="cl-sub">
+						<div class="cl-sub__info">
+							<h3 class="cl-h3">2. One detail screen, every lifecycle.</h3>
+							<p>A futures order has a life. It can be modified through DCA, SL/TP edits, margin adjustments or partial close. It ends by manual exit, take profit, stop loss or liquidation, and each ending means something different.</p>
+							<p>The old screen showed the same flat data however the order resolved. The new detail tells the order's story: a <strong>Nguyên nhân</strong> (Cause) field names how it ended, and the layout shifts to emphasize what matters for that ending.</p>
+						</div>
+						<dl class="nf-ends">
+							<div class="nf-ends__row">
+								<dt>Take profit</dt>
+								<dd>Highlights Chốt lời, with PnL in green.</dd>
+							</div>
+							<div class="nf-ends__row">
+								<dt>Stop loss</dt>
+								<dd>Highlights Cắt lỗ, in red.</dd>
+							</div>
+							<div class="nf-ends__row">
+								<dt>Liquidation</dt>
+								<dd>Surfaces the liquidation fee.</dd>
+							</div>
+							<div class="nf-ends__row">
+								<dt>Partial close</dt>
+								<dd>Separates closed volume from what remains.</dd>
+							</div>
+							<div class="nf-ends__row">
+								<dt>DCA</dt>
+								<dd>Shows volume and average price changes inline.</dd>
+							</div>
+						</dl>
+						<div class="nf-variants">
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/d-tp.webp" alt="Order detail closed by take profit: Nguyên nhân reads Chạm chốt lời, estimated profit in green" width="390" height="720" loading="lazy">
+								<figcaption>Take profit</figcaption>
+							</figure>
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/d-sl.webp" alt="Order detail closed by stop loss: Nguyên nhân reads Chạm cắt lỗ, loss in red, opening fee expanded" width="390" height="720" loading="lazy">
+								<figcaption>Stop loss</figcaption>
+							</figure>
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/d-liq.webp" alt="Order detail closed by liquidation: Nguyên nhân reads Bị thanh lý, with the liquidation fee row" width="390" height="720" loading="lazy">
+								<figcaption>Liquidation</figcaption>
+							</figure>
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/d-partial.webp" alt="Order detail for a partial close: Nguyên nhân reads Đóng một phần lệnh, linking back to the original order number" width="390" height="594" loading="lazy">
+								<figcaption>Partial close</figcaption>
+							</figure>
+						</div>
+						<div class="nf-split">
+							<img class="nf-phone nf-split__img" src="../assets/nami-futures/mod-history.webp" alt="Modification history: a volume increase shown as before-and-after values for volume, leverage, margin, entry and liquidation price, then a stop loss and take profit edit in red and green" width="390" height="730" loading="lazy">
+							<div class="nf-split__text">
+								<p class="cl-label">Modification history</p>
+								<p>Every modified order also carries a <strong>Lịch sử điều chỉnh lệnh</strong> section. Each change is a before-and-after row, color-coded, so a trader can replay what they did to the position: a DCA that raised volume and moved the average price, then an SL/TP edit.</p>
+							</div>
+						</div>
+						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>The detail screen should answer the question a trader has when they open a closed order: what happened to this trade, and what did I do about it?</p>
+					</div>
+
+					<!-- Theme 3 -->
+					<div class="cl-sub">
+						<div class="cl-sub__info">
+							<h3 class="cl-h3">3. Make room for Funding Rate without crowding the order form.</h3>
+							<p>Funding Rate was new to most Nami traders. The math, a small charge or credit every eight hours based on the gap between futures and spot price, is something traders learn by seeing it work. So the design is layered.</p>
+						</div>
+						<div class="cl-cards cl-cards--objectives">
+							<div class="cl-card">
+								<p class="cl-card__num">01.</p>
+								<p class="cl-card__title">A persistent row</p>
+								<p>A thin row below the chart's indicator selectors shows the current rate and a countdown to the next funding moment. <strong class="cl-blue">Visibility teaches awareness.</strong></p>
+							</div>
+							<div class="cl-card">
+								<p class="cl-card__num">02.</p>
+								<p class="cl-card__title">A plain-language modal</p>
+								<p>One tap opens an explanation written for traders, not for the spec. <strong class="cl-blue">The modal teaches understanding.</strong></p>
+							</div>
+							<div class="cl-card">
+								<p class="cl-card__num">03.</p>
+								<p class="cl-card__title">History and rules</p>
+								<p>The modal links to Lịch sử funding, and the Thông tin tab lists Funding beside the contract's other trading rules. <strong class="cl-blue">The history closes the loop.</strong></p>
+							</div>
+						</div>
+						<div class="nf-phones nf-phones--3">
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/after-default.webp" alt="Trading screen with the Funding / Đếm ngược row above the order form: 0.0426% and a countdown of 03:31:10" width="390" height="844" loading="lazy">
+								<figcaption>The rate and countdown, always visible</figcaption>
+							</figure>
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/fund-modal.webp" alt="Tỷ lệ funding sheet explaining in plain Vietnamese that longs pay shorts when the rate is positive and shorts pay longs when it is negative, with a Funding history button" width="390" height="844" loading="lazy">
+								<figcaption>One tap explains it</figcaption>
+							</figure>
+							<figure>
+								<img class="nf-phone" src="../assets/nami-futures/fund-info.webp" alt="Thông tin tab listing the contract's trading rules, starting with Funding and countdown, then minimum and maximum order sizes, max leverage and liquidation fee" width="390" height="624" loading="lazy">
+								<figcaption>Funding beside the trading rules</figcaption>
+							</figure>
+						</div>
+					</div>
+				</section>
+
+				<!-- 05 -->
+				<section class="cl-section" id="reflection" aria-labelledby="reflection-h">
+					<header class="cl-head">
+						<p class="cl-eyebrow">05. Reflection</p>
+						<h2 class="cl-h2 serif" id="reflection-h">What I'd do <em class="cl-em">differently.</em></h2>
+					</header>
+					<ol class="cl-callouts cl-callouts--row nf-callouts--3">
+						<li class="cl-callout">
+							<span class="cl-callout__num" aria-hidden="true">01</span>
+							<div>
+								<p class="cl-callout__title">Reframe the brief</p>
+								<p class="cl-callout__desc">“The app looks outdated” was a trigger, not a problem. Today I'd ask which surfaces are being changed by which features, and let that shape what gets redesigned.</p>
+							</div>
+						</li>
+						<li class="cl-callout">
+							<span class="cl-callout__num" aria-hidden="true">02</span>
+							<div>
+								<p class="cl-callout__title">Add real user research</p>
+								<p class="cl-callout__desc">Competitor analysis isn't user research. I'd talk to Nami traders, mine support tickets and instrument the funnel before touching a screen.</p>
+							</div>
+						</li>
+						<li class="cl-callout">
+							<span class="cl-callout__num" aria-hidden="true">03</span>
+							<div>
+								<p class="cl-callout__title">Commit to a metric</p>
+								<p class="cl-callout__desc">I shipped with no baseline and no target. Today I'd pick one, such as time-to-first-trade, order-entry completion or position management session length, and check it after.</p>
+							</div>
+						</li>
+					</ol>
+					<p class="nf-closing serif">This project taught me how to design for a product that is maturing underneath the surface I'm working on. What I'd add today is designing for <em class="cl-em">outcomes,</em> not just outputs.</p>
+				</section>
+			</article>
+		</div>
+	</main>
+
+	<footer class="footer">
+		<p class="footer__by">Designed + researched with ♡ by Linh Tran</p>
+		<nav class="footer__links" aria-label="Social">
+			<a href="https://www.linkedin.com/in/linhtran99/" target="_blank" rel="noopener">LinkedIn</a>
+			<a href="https://www.behance.net/linhtrandesign" target="_blank" rel="noopener">Behance</a>
+			<a href="mailto:linhtran5399@gmail.com">Email</a>
+			<a href="https://linhtran5399.substack.com/?utm_campaign=profile_chips" target="_blank" rel="noopener">Substack</a>
+		</nav>
+	</footer>
+
+	<script>
+		// Highlight the TOC entry for the section currently in view.
+		(function () {
+			var links = document.querySelectorAll('.cl-toc__list a');
+			if (!('IntersectionObserver' in window) || !links.length) return;
+			var map = {};
+			links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (e) {
+					if (!e.isIntersecting) return;
+					links.forEach(function (a) { a.classList.remove('is-active'); });
+					map[e.target.id].classList.add('is-active');
+				});
+			}, { rootMargin: '-30% 0px -65% 0px' });
+			Object.keys(map).forEach(function (id) {
+				var el = document.getElementById(id);
+				if (el) io.observe(el);
+			});
+		})();
+	</script>
+	<script src="../js/loading.js" defer></script>
+</body>
+</html>
