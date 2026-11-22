@@ -5,6 +5,8 @@
 .nf {
 	--nf-phone-radius: 20px;
 	--nf-phone-border: #0f1e29;
+	--nf-ba-dark: #27343e;
+	--nf-ba-dot: rgba(255, 255, 255, 0.08);
 }
 
 /* ---------- Intro ---------- */
@@ -135,26 +137,47 @@
 
 .nf-stack__row--exit { font-weight: 600; }
 
-.nf-compare {
+/* Before / after panel: mirrors the cash-loan "final result" block in Figma. */
+.nf-ba {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: var(--space-6);
-	align-items: start;
-	padding: var(--space-6);
-	border-radius: var(--radius-card);
-	background: var(--surface-card);
+	overflow: hidden;
+	border-radius: var(--radius-bento);
 }
 
-.nf-compare__item {
+.nf-ba__half {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-2);
+	align-items: center;
+	gap: var(--space-6);
+	padding: 36px var(--space-6) 40px;
 }
 
-.nf-compare__item img {
-	width: 100%;
+.nf-ba__half--before { background: var(--tag-blue-bg); }
+
+.nf-ba__half--after {
+	background-color: var(--nf-ba-dark);
+	background-image: radial-gradient(var(--nf-ba-dot) 1px, transparent 1px);
+	background-size: 16px 16px;
+}
+
+.nf-ba__label {
+	width: min(266px, 100%);
+	padding: 7px var(--space-4);
+	border-radius: var(--radius-sm);
+	background: var(--white);
+	color: var(--text-primary);
+	font-size: var(--fs-lead);
+	font-weight: 700;
+	line-height: 24px;
+	text-align: center;
+}
+
+.nf-ba__screen {
+	display: block;
+	width: min(266px, 100%);
 	height: auto;
-	border-radius: var(--radius-card);
+	border-radius: 9px;
 }
 
 .nf-density .nf-phones--pair {
@@ -256,20 +279,17 @@
 	}
 
 	.nf-cards--2,
-	.nf-compare,
+	.nf-ba,
 	.nf-phones--3 {
 		grid-template-columns: 1fr;
 	}
 
-	.nf-phones--3 figure,
-	.nf-compare__item {
+	.nf-phones--3 figure {
 		width: min(280px, 100%);
 		margin: 0 auto;
 	}
 
-	.nf-compare__item { width: 100%; }
-
-	.nf-compare { padding: var(--space-4); }
+	.nf-ba__half { padding: var(--space-6) var(--space-4); }
 
 	.nf-split {
 		flex-direction: column;
