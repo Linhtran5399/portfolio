@@ -280,18 +280,15 @@
 							</div>
 							<p class="cl-result__card">What changed on the card:<br><span class="cl-blue">PnL and the exit prices now lead</span>; the other six stats became reference.</p>
 						</div>
-						<div class="nf-density">
-							<div class="nf-phones nf-phones--pair">
-								<figure>
-									<img class="nf-phone" src="../assets/nami-futures/after-compact.webp" alt="Positions tab in Rút gọn (Compact) mode: each position collapsed to pair, side and PnL" width="390" height="844" loading="lazy">
-									<figcaption>Rút gọn (Compact)</figcaption>
-								</figure>
-								<figure>
-									<img class="nf-phone" src="../assets/nami-futures/after-full.webp" alt="Positions tab in Đầy đủ (Full) mode: the first position expanded with its exit block, stats and actions" width="390" height="844" loading="lazy">
-									<figcaption>Đầy đủ (Full)</figcaption>
-								</figure>
-							</div>
-						</div>
+						<figure class="cl-media nf-clip">
+							<video class="cl-media__video" muted loop playsinline preload="none" poster="../assets/nami-futures/video/density-poster.jpg" aria-label="Prototype video: the Positions tab starts in Rút gọn, one card is opened with its chevron, then Chi tiết expands every position and the list scrolls, before switching back to Rút gọn">
+								<source src="../assets/nami-futures/video/density.mp4" type="video/mp4">
+							</video>
+							<figcaption>
+								<p class="cl-media__title">Density toggle</p>
+								<p class="cl-media__desc">Rút gọn by default, one tap to open a single card, Chi tiết to expand every position.</p>
+							</figcaption>
+						</figure>
 						<figure class="nf-wide">
 							<img class="cl-img" src="../assets/nami-futures/card-states.webp" alt="Position card states side by side: expanded, collapsed to one row, expanded without a chevron, and a variant with an insurance entry" width="1654" height="432" loading="lazy">
 							<figcaption>Card states: expanded, collapsed per card, and a variant with the insurance entry.</figcaption>
@@ -459,6 +456,28 @@
 				var el = document.getElementById(id);
 				if (el) io.observe(el);
 			});
+		})();
+
+		// Play the prototype video only while it is on screen.
+		(function () {
+			var videos = document.querySelectorAll('.cl-media__video');
+			var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			if (reduce || !('IntersectionObserver' in window)) {
+				videos.forEach(function (v) { v.controls = true; v.preload = 'metadata'; });
+				return;
+			}
+			var io = new IntersectionObserver(function (entries) {
+				entries.forEach(function (e) {
+					var v = e.target;
+					if (e.isIntersecting) {
+						var p = v.play();
+						if (p && p.catch) p.catch(function () { v.controls = true; });
+					} else {
+						v.pause();
+					}
+				});
+			}, { threshold: 0.35 });
+			videos.forEach(function (v) { io.observe(v); });
 		})();
 	</script>
 	<script src="../js/loading.js" defer></script>
