@@ -302,14 +302,25 @@
 							</div>
 							<p class="cl-result__card">What changed on the card:<br><span class="cl-blue">PnL and the exit prices now lead</span>; the other six stats became reference.</p>
 						</div>
-						<figure class="cl-media nf-clip">
-							<video class="cl-media__video" muted loop playsinline preload="none" poster="../assets/nami-futures/video/density-poster.jpg" aria-label="Prototype video: the Positions tab starts in Rút gọn, one card is opened with its chevron, then Chi tiết expands every position and the list scrolls, before switching back to Rút gọn">
-								<source src="../assets/nami-futures/video/density.mp4" type="video/mp4">
-							</video>
-							<figcaption>
-								<p class="cl-media__title">Density toggle</p>
-								<p class="cl-media__desc">Rút gọn by default, one tap to open a single card, Chi tiết to expand every position.</p>
-							</figcaption>
+						<figure class="nf-annot" style="--h:622px">
+							<div class="nf-annot__phone"><video class="nf-annot__video" muted loop playsinline preload="none" width="280" height="606" poster="../assets/nami-futures/video/density-screen-poster.jpg" aria-label="Prototype video: the Positions tab starts in Rút gọn, one card is opened with its chevron, then Chi tiết expands every position and the list scrolls, before switching back to Rút gọn">
+								<source src="../assets/nami-futures/video/density-screen.mp4" type="video/mp4">
+							</video></div>
+							<svg class="nf-annot__leaders" viewBox="0 0 800 622" aria-hidden="true"><path d="M216 274H234V274H252"/><circle cx="252" cy="274" r="4"/><path d="M584 356H566V353H548"/><circle cx="548" cy="353" r="4"/><path d="M216 447H234V371H252"/><circle cx="252" cy="371" r="4"/></svg>
+							<ul class="nf-annot__notes">
+								<li class="nf-note nf-note--l" style="--y:235px; --w:134px">
+									<img src="../assets/nami-futures/solutions/d-toggle.webp" alt="The density toggle in both states: Rút gọn active, then Chi tiết active" width="160" height="93" loading="lazy">
+									<p>A global <strong>density toggle</strong>: Rút gọn by default, Chi tiết to expand every position at once.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:338px; --w:127px">
+									<img src="../assets/nami-futures/solutions/d-chevron.webp" alt="A card chevron pointing down, then up once the card is open" width="106" height="30" loading="lazy">
+									<p>A <strong>chevron</strong> on each card opens just that position, without changing the mode.</p>
+								</li>
+								<li class="nf-note nf-note--l" style="--y:409px; --w:216px">
+									<img src="../assets/nami-futures/solutions/d-card.webp" alt="A collapsed position card: BTC/VNDC, Cross / Mua / Giới hạn and PnL of -1,327" width="277" height="97" loading="lazy">
+									<p>In <strong>Rút gọn</strong>, each position shows only pair, side and PnL, so a long list scans fast.</p>
+								</li>
+							</ul>
 						</figure>
 						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>Traders care about how they're doing now and where they're getting out. Everything else is reference. Reorder by attention, and let traders choose density.</p>
 					</div>
@@ -444,7 +455,7 @@
 
 		// Play the prototype video only while it is on screen.
 		(function () {
-			var videos = document.querySelectorAll('.cl-media__video');
+			var videos = document.querySelectorAll('.cl-media__video, .nf-annot__video');
 			var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 			if (reduce || !('IntersectionObserver' in window)) {
 				videos.forEach(function (v) { v.controls = true; v.preload = 'metadata'; });

@@ -186,7 +186,8 @@
 	background: var(--nf-phone-bezel);
 }
 
-.nf-annot__phone img {
+.nf-annot__phone img,
+.nf-annot__phone video {
 	display: block;
 	width: 100%;
 	height: auto;
@@ -381,10 +382,4 @@
 		font-size: var(--fs-h1);
 		line-height: 26px;
 	}
-}
-
-/* Density demo clip: one cash-loan style media card, centred in the column. */
-.nf-clip {
-	width: min(388px, 100%);
-	align-self: center;
 }
