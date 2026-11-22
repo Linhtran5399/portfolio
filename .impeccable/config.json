@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-22T14:46:29.103Z",
+        "reason": "DESIGN-BRIEF.md: Typography is Playfair Display headings + Inter body, decided in /design-grill"
+      }
+    ]
+  }
+}
