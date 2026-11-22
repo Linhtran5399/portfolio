@@ -6,6 +6,7 @@
 	--nf-phone-radius: 20px;
 	--nf-phone-border: #0f1e29;
 	--nf-ba-dark: #27343e;
+	--nf-phone-bezel: #0b0d12;
 	--nf-ba-dot: rgba(255, 255, 255, 0.08);
 }
 
@@ -69,16 +70,13 @@
 	align-items: start;
 }
 
-.nf-phones figure,
-.nf-variants figure {
+.nf-phones figure {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-2);
 }
 
-.nf-phones figcaption,
-.nf-variants figcaption,
-.nf-wide figcaption {
+.nf-phones figcaption {
 	color: var(--text-secondary);
 	font-size: var(--fs-body);
 	line-height: var(--lh-body);
@@ -86,7 +84,6 @@
 }
 
 .nf-phones--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.nf-phones--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 /* 03: the two legacy phones sit where the template has one. */
 .nf .cl-old__row { align-items: flex-start; }
@@ -96,46 +93,203 @@
 	width: 376px;
 }
 
-/* ---------- 04 Theme 1: card hierarchy ---------- */
-.nf-stack {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-2);
+/* ---------- 04 Design: solution overview ---------- */
+.nf .nf-overview {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--space-4);
+	padding: 0;
 	list-style: none;
 }
 
-.nf .nf-stack { padding-left: 0; }
-
-.nf-stack__row {
+.nf-overview a {
 	display: flex;
-	align-items: baseline;
-	gap: var(--space-4);
-	padding: var(--space-3) var(--space-4);
-	border-radius: var(--radius-sm);
-	background: var(--surface-card);
+	flex-direction: column;
+	gap: var(--space-2);
+	height: 100%;
+	padding: var(--space-6);
+	border: 1.5px solid var(--core-primary);
+	border-radius: var(--radius-bento);
+	color: inherit;
+	transition: background-color 0.2s;
+}
+
+.nf-overview a:hover { background: var(--tag-blue-bg); }
+
+.nf-overview__num {
+	color: var(--core-primary);
+	font-size: var(--fs-heading);
+	font-weight: 700;
+	line-height: 48px;
+}
+
+.nf-overview__title {
+	color: var(--text-title);
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.nf-overview__desc {
+	color: var(--text-secondary);
 	font-size: var(--fs-body);
 	line-height: var(--lh-body);
 }
 
-.nf-stack__key {
-	flex: 0 0 84px;
+/* ---------- 04 Design: one solution ---------- */
+.nf-sol {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+	padding-top: 56px;
+	scroll-margin-top: var(--space-6);
+}
+
+.nf-sol__head {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-2);
+	text-align: center;
+}
+
+.nf-sol__eyebrow {
+	color: var(--core-primary);
+	font-weight: 600;
+}
+
+.nf-sol__title {
+	color: var(--text-title);
+	font-size: var(--fs-h3);
+	font-weight: 600;
+	line-height: var(--lh-h2);
+}
+
+.nf-sol__lede { max-width: 640px; }
+
+/* Annotated phone: notes either side, dashed leaders to the phone edge.
+   Geometry is shared with the Figma frame (800 wide, phone at x 252). */
+.nf-annot {
+	position: relative;
+	width: 800px;
+	height: var(--h);
+	margin: 0 auto;
+}
+
+.nf-annot__phone {
+	position: absolute;
+	top: 0;
+	left: 252px;
+	width: 296px;
+	padding: 8px;
+	border-radius: 40px;
+	background: var(--nf-phone-bezel);
+}
+
+.nf-annot__phone img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 32px;
+}
+
+.nf-annot__leaders {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.nf-annot__leaders path {
+	fill: none;
+	stroke: var(--text-muted);
+	stroke-dasharray: 4 4;
+}
+
+.nf-annot__leaders circle {
+	fill: var(--core-primary);
+	stroke: var(--white);
+	stroke-width: 2;
+}
+
+.nf .nf-annot__notes {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.nf-note {
+	position: absolute;
+	top: var(--y);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	width: 216px;
+}
+
+.nf-note--l { left: 0; align-items: flex-end; text-align: right; }
+.nf-note--r { left: 584px; align-items: flex-start; }
+
+.nf-note img {
+	display: block;
+	width: var(--w);
+	height: auto;
+	border-radius: 6px;
+}
+
+.nf-note p {
 	color: var(--text-secondary);
-	font-size: var(--fs-caption);
-	font-weight: 700;
-	line-height: 16px;
-	text-transform: uppercase;
+	font-size: var(--fs-body);
+	line-height: var(--lh-body);
 }
 
-.nf-stack__row--lead {
-	font-size: var(--fs-lead);
-	font-weight: 700;
-	line-height: 28px;
+.nf-note strong {
+	color: var(--core-primary);
+	font-weight: 600;
 }
 
-.nf-stack__row--lead .nf-stack__key,
-.nf-stack__row--exit .nf-stack__key { color: var(--core-primary); }
+/* Narrower than the 800px figure: phone first, notes listed below it. */
+@container (max-width: 799px) {
+	.nf-annot {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--space-6);
+	}
 
-.nf-stack__row--exit { font-weight: 600; }
+	.nf-annot__phone {
+		position: static;
+		width: min(296px, 100%);
+	}
+
+	.nf-annot__leaders { display: none; }
+
+	.nf .nf-annot__notes {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--space-6);
+		width: 100%;
+	}
+
+	.nf-note,
+	.nf-note--l,
+	.nf-note--r {
+		position: static;
+		width: auto;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.nf-note img { width: min(calc(var(--w) * 1.2), 100%); }
+}
+
+@container (max-width: 520px) {
+	.nf .nf-annot__notes { grid-template-columns: 1fr; }
+}
 
 /* Before / after panel: mirrors the cash-loan "final result" block in Figma. */
 .nf-ba {
@@ -181,12 +335,6 @@
 }
 
 
-.nf-wide {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-2);
-}
-
 .nf-principle {
 	display: flex;
 	flex-direction: column;
@@ -202,58 +350,6 @@
 	text-transform: uppercase;
 }
 
-/* ---------- 04 Theme 2: order endings ---------- */
-.nf-ends {
-	display: flex;
-	flex-direction: column;
-	border-radius: var(--radius-card);
-	background: var(--surface-card);
-	padding: var(--space-2) var(--space-4);
-}
-
-.nf-ends__row {
-	display: grid;
-	grid-template-columns: 140px minmax(0, 1fr);
-	gap: var(--space-4);
-	padding: var(--space-3) 0;
-	border-bottom: 1px solid var(--border-default);
-	font-size: var(--fs-body);
-	line-height: var(--lh-body);
-}
-
-.nf-ends__row:last-child { border-bottom: 0; }
-
-.nf-ends dt { font-weight: 700; }
-
-.nf-variants {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: var(--space-4);
-	align-items: start;
-}
-
-.nf-split {
-	display: flex;
-	align-items: center;
-	gap: var(--space-10);
-	padding: var(--space-6);
-	border-radius: var(--radius-card);
-	background: var(--surface-card);
-}
-
-.nf-split__img {
-	flex: 0 0 240px;
-	width: 240px;
-}
-
-.nf-split__text {
-	flex: 1 1 0;
-	min-width: 0;
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-2);
-}
-
 /* ---------- 05 Reflection ---------- */
 .nf-callouts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
@@ -264,7 +360,6 @@
 
 /* ---------- Responsive ---------- */
 @container (max-width: 760px) {
-	.nf-variants { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.nf-callouts--3 { grid-template-columns: 1fr; }
 }
 
@@ -276,41 +371,11 @@
 
 	.nf-cards--2,
 	.nf-ba,
-	.nf-phones--3 {
+	.nf .nf-overview {
 		grid-template-columns: 1fr;
-	}
-
-	.nf-phones--3 figure {
-		width: min(280px, 100%);
-		margin: 0 auto;
 	}
 
 	.nf-ba__half { padding: var(--space-6) var(--space-4); }
-
-	.nf-split {
-		flex-direction: column;
-		align-items: stretch;
-		gap: var(--space-4);
-		padding: var(--space-4);
-	}
-
-	.nf-split__img {
-		align-self: center;
-		width: min(240px, 100%);
-		flex-basis: auto;
-	}
-
-	.nf-ends__row {
-		grid-template-columns: 1fr;
-		gap: var(--space-1);
-	}
-
-	.nf-stack__row {
-		flex-direction: column;
-		gap: var(--space-1);
-	}
-
-	.nf-stack__key { flex-basis: auto; }
 
 	.nf-closing {
 		font-size: var(--fs-h1);

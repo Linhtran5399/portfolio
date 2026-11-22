@@ -251,20 +251,42 @@
 						<p class="cl-eyebrow">04. Design</p>
 						<h2 class="cl-h2 serif" id="design-h">Three themes behind the <em class="cl-em">craft work.</em></h2>
 					</header>
-					<p>Each theme answers one of the breakdowns: what traders watch, what happened to a trade, and where new concepts like Funding Rate live.</p>
+					<p>Three moves, one per breakdown: give what traders watch the space, let every closed order tell its story, and make room for Funding Rate.</p>
 
-					<!-- Theme 1 -->
-					<div class="cl-sub">
-						<div class="cl-sub__info">
-							<h3 class="cl-h3">1. Elevate what traders watch. Demote what they reference. Let them pick density.</h3>
-							<p>On the new position card, PnL became the largest element, color-coded at a size that reads instantly. Stop loss and take profit moved out of the stats grid into their own highlighted block, with both price and percentage from entry. The other six stats compressed into a smaller three-column grid below.</p>
-						</div>
-						<ol class="nf-stack" aria-label="Position card hierarchy, top to bottom">
-							<li class="nf-stack__row nf-stack__row--lead"><span class="nf-stack__key">Watch</span><span>PnL, largest and color-coded</span></li>
-							<li class="nf-stack__row nf-stack__row--exit"><span class="nf-stack__key">Exit</span><span>Stop loss &amp; take profit: price and % from entry</span></li>
-							<li class="nf-stack__row"><span class="nf-stack__key">Reference</span><span>Six remaining stats in a compact 3-column grid</span></li>
-						</ol>
-						<p>The list also gained a density toggle: a global <strong>Đầy đủ</strong> (Full) and <strong>Rút gọn</strong> (Compact), with per-card chevrons inside Đầy đủ. The default lands on the lighter mode.</p>
+					<ol class="nf-overview">
+						<li><a href="#solution-1"><span class="nf-overview__num serif">1</span><span class="nf-overview__title serif">Elevate what traders watch</span><span class="nf-overview__desc">Lead with PnL and exits; let traders pick density.</span></a></li>
+						<li><a href="#solution-2"><span class="nf-overview__num serif">2</span><span class="nf-overview__title serif">One detail screen, every lifecycle</span><span class="nf-overview__desc">Name how each order ended and what changed along the way.</span></a></li>
+						<li><a href="#solution-3"><span class="nf-overview__num serif">3</span><span class="nf-overview__title serif">Make room for Funding Rate</span><span class="nf-overview__desc">Teach a new concept in layers, outside the order form.</span></a></li>
+					</ol>
+
+					<div class="nf-sol" id="solution-1">
+						<header class="nf-sol__head">
+							<p class="nf-sol__eyebrow">Solution 1</p>
+							<h3 class="nf-sol__title serif">Elevate what traders <em class="cl-em">watch.</em></h3>
+							<p class="nf-sol__lede">What traders watch got the space. What they only reference moved below, and traders choose how much they see.</p>
+						</header>
+						<figure class="nf-annot" style="--h:652px">
+							<div class="nf-annot__phone"><img src="../assets/nami-futures/solutions/sol1-phone.webp" alt="Revamped Positions tab in Đầy đủ mode: balance summary, density toggle, then a position card with PnL at the top right, a stop loss and take profit block, and six stats below" width="390" height="844" loading="lazy"></div>
+							<svg class="nf-annot__leaders" viewBox="0 0 800 652" aria-hidden="true"><path d="M216 274H234V274H252"/><circle cx="252" cy="274" r="4"/><path d="M584 374H566V373H548"/><circle cx="548" cy="373" r="4"/><path d="M216 432H234V432H252"/><circle cx="252" cy="432" r="4"/><path d="M584 543H566V500H548"/><circle cx="548" cy="500" r="4"/></svg>
+							<ul class="nf-annot__notes">
+								<li class="nf-note nf-note--l" style="--y:256px; --w:134px">
+									<img src="../assets/nami-futures/solutions/s1-toggle.webp" alt="The Chi tiết and Rút gọn density toggle" width="160" height="44" loading="lazy">
+									<p>Added a <strong>density toggle</strong>: Rút gọn by default, Chi tiết to expand everything, plus a chevron on each card.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:340px; --w:119px">
+									<img src="../assets/nami-futures/solutions/s1-pnl.webp" alt="Position card header with PnL of -1,327 and -13.46% in red" width="142" height="80" loading="lazy">
+									<p><strong>PnL</strong> became the largest element, coloured at a size that reads instantly.</p>
+								</li>
+								<li class="nf-note nf-note--l" style="--y:412px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s1-sltp.webp" alt="Stop loss and take profit block with prices and percentages from entry" width="366" height="70" loading="lazy">
+									<p>Stop loss and take profit moved into <strong>their own block</strong>, with price and % from entry.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:502px; --w:208px">
+									<img src="../assets/nami-futures/solutions/s1-stats.webp" alt="Compact grid of reference stats: entry price, volume, market value, liquidation price" width="248" height="98" loading="lazy">
+									<p>The other <strong>six stats</strong> compressed into a smaller three-column grid.</p>
+								</li>
+							</ul>
+						</figure>
 						<div class="cl-result">
 							<p class="cl-result__eyebrow">🔁 Before and after</p>
 							<p class="cl-p--black">The same Positions tab, before and after. The old card gave all eight stats the same weight. The new one leads with PnL and the exit prices, then compresses the rest into a reference grid.</p>
@@ -289,107 +311,69 @@
 								<p class="cl-media__desc">Rút gọn by default, one tap to open a single card, Chi tiết to expand every position.</p>
 							</figcaption>
 						</figure>
-						<figure class="nf-wide">
-							<img class="cl-img" src="../assets/nami-futures/card-states.webp" alt="Position card states side by side: expanded, collapsed to one row, expanded without a chevron, and a variant with an insurance entry" width="1654" height="432" loading="lazy">
-							<figcaption>Card states: expanded, collapsed per card, and a variant with the insurance entry.</figcaption>
-						</figure>
 						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>Traders care about how they're doing now and where they're getting out. Everything else is reference. Reorder by attention, and let traders choose density.</p>
 					</div>
 
-					<!-- Theme 2 -->
-					<div class="cl-sub">
-						<div class="cl-sub__info">
-							<h3 class="cl-h3">2. One detail screen, every lifecycle.</h3>
-							<p>A futures order has a life. It can be modified through DCA, SL/TP edits, margin adjustments or partial close. It ends by manual exit, take profit, stop loss or liquidation, and each ending means something different.</p>
-							<p>The old screen showed the same flat data however the order resolved. The new detail tells the order's story: a <strong>Nguyên nhân</strong> (Cause) field names how it ended, and the layout shifts to emphasize what matters for that ending.</p>
-						</div>
-						<dl class="nf-ends">
-							<div class="nf-ends__row">
-								<dt>Take profit</dt>
-								<dd>Highlights Chốt lời, with PnL in green.</dd>
-							</div>
-							<div class="nf-ends__row">
-								<dt>Stop loss</dt>
-								<dd>Highlights Cắt lỗ, in red.</dd>
-							</div>
-							<div class="nf-ends__row">
-								<dt>Liquidation</dt>
-								<dd>Surfaces the liquidation fee.</dd>
-							</div>
-							<div class="nf-ends__row">
-								<dt>Partial close</dt>
-								<dd>Separates closed volume from what remains.</dd>
-							</div>
-							<div class="nf-ends__row">
-								<dt>DCA</dt>
-								<dd>Shows volume and average price changes inline.</dd>
-							</div>
-						</dl>
-						<div class="nf-variants">
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/d-tp.webp" alt="Order detail closed by take profit: Nguyên nhân reads Chạm chốt lời, estimated profit in green" width="390" height="720" loading="lazy">
-								<figcaption>Take profit</figcaption>
-							</figure>
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/d-sl.webp" alt="Order detail closed by stop loss: Nguyên nhân reads Chạm cắt lỗ, loss in red, opening fee expanded" width="390" height="720" loading="lazy">
-								<figcaption>Stop loss</figcaption>
-							</figure>
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/d-liq.webp" alt="Order detail closed by liquidation: Nguyên nhân reads Bị thanh lý, with the liquidation fee row" width="390" height="720" loading="lazy">
-								<figcaption>Liquidation</figcaption>
-							</figure>
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/d-partial.webp" alt="Order detail for a partial close: Nguyên nhân reads Đóng một phần lệnh, linking back to the original order number" width="390" height="594" loading="lazy">
-								<figcaption>Partial close</figcaption>
-							</figure>
-						</div>
-						<div class="nf-split">
-							<img class="nf-phone nf-split__img" src="../assets/nami-futures/mod-history.webp" alt="Modification history: a volume increase shown as before-and-after values for volume, leverage, margin, entry and liquidation price, then a stop loss and take profit edit in red and green" width="390" height="730" loading="lazy">
-							<div class="nf-split__text">
-								<p class="cl-label">Modification history</p>
-								<p>Every modified order also carries a <strong>Lịch sử điều chỉnh lệnh</strong> section. Each change is a before-and-after row, color-coded, so a trader can replay what they did to the position: a DCA that raised volume and moved the average price, then an SL/TP edit.</p>
-							</div>
-						</div>
+					<div class="nf-sol" id="solution-2">
+						<header class="nf-sol__head">
+							<p class="nf-sol__eyebrow">Solution 2</p>
+							<h3 class="nf-sol__title serif">One detail screen, <em class="cl-em">every lifecycle.</em></h3>
+							<p class="nf-sol__lede">A futures order has a life, and each ending means something different. The detail screen now tells that story.</p>
+						</header>
+						<figure class="nf-annot" style="--h:789px">
+							<div class="nf-annot__phone"><img src="../assets/nami-futures/solutions/sol2-phone.webp" alt="Closed order detail for a take profit: estimated PnL in green, the Nguyên nhân field reading Chạm chốt lời, fee rows, and the start of the modification history" width="390" height="844" loading="lazy"></div>
+							<svg class="nf-annot__leaders" viewBox="0 0 800 789" aria-hidden="true"><path d="M216 208H234V208H252"/><circle cx="252" cy="208" r="4"/><path d="M584 389H566V389H548"/><circle cx="548" cy="389" r="4"/><path d="M216 531H234V531H252"/><circle cx="252" cy="531" r="4"/><path d="M584 629H566V597H548"/><circle cx="548" cy="597" r="4"/></svg>
+							<ul class="nf-annot__notes">
+								<li class="nf-note nf-note--l" style="--y:196px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s2-pnl.webp" alt="Estimated PnL row: 2,271,090 (+12%) in green" width="302" height="32" loading="lazy">
+									<p>The outcome reads first: estimated <strong>PnL in green</strong> for a take profit, red for a stop loss.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:337px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s2-cause.webp" alt="Nguyên nhân rows for four orders: Chạm chốt lời, Chạm cắt lỗ, Bị thanh lý, Đóng một phần lệnh" width="302" height="145" loading="lazy">
+									<p>A <strong>Nguyên nhân</strong> (Cause) field names how the order ended: take profit, stop loss, liquidation or partial close.</p>
+								</li>
+								<li class="nf-note nf-note--l" style="--y:508px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s2-fees.webp" alt="Fee rows: liquidation fee 2,000 VNDC and funding +2,000" width="302" height="64" loading="lazy">
+									<p>A liquidation surfaces the <strong>liquidation fee</strong>; funding paid or earned sits alongside.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:557px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s2-mod.webp" alt="Modification history entry for a volume increase, with before and after values" width="302" height="202" loading="lazy">
+									<p><strong>Lịch sử điều chỉnh lệnh</strong>: every DCA, SL/TP or margin change as a colour-coded before → after row.</p>
+								</li>
+							</ul>
+						</figure>
 						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>The detail screen should answer the question a trader has when they open a closed order: what happened to this trade, and what did I do about it?</p>
 					</div>
 
-					<!-- Theme 3 -->
-					<div class="cl-sub">
-						<div class="cl-sub__info">
-							<h3 class="cl-h3">3. Make room for Funding Rate without crowding the order form.</h3>
-							<p>Funding Rate was new to most Nami traders. The math, a small charge or credit every eight hours based on the gap between futures and spot price, is something traders learn by seeing it work. So the design is layered.</p>
-						</div>
-						<div class="cl-cards cl-cards--objectives">
-							<div class="cl-card">
-								<p class="cl-card__num">01.</p>
-								<p class="cl-card__title">A persistent row</p>
-								<p>A thin row below the chart's indicator selectors shows the current rate and a countdown to the next funding moment. <strong class="cl-blue">Visibility teaches awareness.</strong></p>
-							</div>
-							<div class="cl-card">
-								<p class="cl-card__num">02.</p>
-								<p class="cl-card__title">A plain-language modal</p>
-								<p>One tap opens an explanation written for traders, not for the spec. <strong class="cl-blue">The modal teaches understanding.</strong></p>
-							</div>
-							<div class="cl-card">
-								<p class="cl-card__num">03.</p>
-								<p class="cl-card__title">History and rules</p>
-								<p>The modal links to Lịch sử funding, and the Thông tin tab lists Funding beside the contract's other trading rules. <strong class="cl-blue">The history closes the loop.</strong></p>
-							</div>
-						</div>
-						<div class="nf-phones nf-phones--3">
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/after-default.webp" alt="Trading screen with the Funding / Đếm ngược row above the order form: 0.0426% and a countdown of 03:31:10" width="390" height="844" loading="lazy">
-								<figcaption>The rate and countdown, always visible</figcaption>
-							</figure>
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/fund-modal.webp" alt="Tỷ lệ funding sheet explaining in plain Vietnamese that longs pay shorts when the rate is positive and shorts pay longs when it is negative, with a Funding history button" width="390" height="844" loading="lazy">
-								<figcaption>One tap explains it</figcaption>
-							</figure>
-							<figure>
-								<img class="nf-phone" src="../assets/nami-futures/fund-info.webp" alt="Thông tin tab listing the contract's trading rules, starting with Funding and countdown, then minimum and maximum order sizes, max leverage and liquidation fee" width="390" height="624" loading="lazy">
-								<figcaption>Funding beside the trading rules</figcaption>
-							</figure>
-						</div>
+					<div class="nf-sol" id="solution-3">
+						<header class="nf-sol__head">
+							<p class="nf-sol__eyebrow">Solution 3</p>
+							<h3 class="nf-sol__title serif">Make room for <em class="cl-em">Funding Rate.</em></h3>
+							<p class="nf-sol__lede">Funding Rate was new to most Nami traders. The design teaches it in layers, without crowding the order form.</p>
+						</header>
+						<figure class="nf-annot" style="--h:622px">
+							<div class="nf-annot__phone"><img src="../assets/nami-futures/solutions/sol3-phone.webp" alt="Trading screen with the Funding / Đếm ngược row above the order form showing 0.0426% and a 03:31:10 countdown" width="390" height="844" loading="lazy"></div>
+							<svg class="nf-annot__leaders" viewBox="0 0 800 622" aria-hidden="true"><path d="M216 343H234V431H252"/><circle cx="252" cy="431" r="4"/><path d="M584 278H566V431H548"/><circle cx="548" cy="431" r="4"/><path d="M216 530H234V431H252"/><circle cx="252" cy="431" r="4"/><path d="M584 460H566V431H548"/><circle cx="548" cy="431" r="4"/></svg>
+							<ul class="nf-annot__notes">
+								<li class="nf-note nf-note--l" style="--y:268px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s3-modal.webp" alt="Tỷ lệ funding sheet explaining in plain Vietnamese who pays whom" width="390" height="270" loading="lazy">
+									<p>One tap opens a <strong>plain-language</strong> explanation of who pays whom.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:262px; --w:161px">
+									<img src="../assets/nami-futures/solutions/s3-row.webp" alt="Funding / Đếm ngược row: 0.0426% / 03:31:10" width="192" height="37" loading="lazy">
+									<p>A thin <strong>persistent row</strong> shows the current rate and the countdown to the next funding.</p>
+								</li>
+								<li class="nf-note nf-note--l" style="--y:514px; --w:216px">
+									<img src="../assets/nami-futures/solutions/s3-history.webp" alt="Lịch sử funding button" width="366" height="55" loading="lazy">
+									<p>The sheet links to <strong>funding history</strong>, which closes the loop.</p>
+								</li>
+								<li class="nf-note nf-note--r" style="--y:389px; --w:206px">
+									<img src="../assets/nami-futures/solutions/s3-info.webp" alt="Thông tin tab with the Quy định giao dịch list starting with Funding/Đếm ngược" width="245" height="170" loading="lazy">
+									<p>The <strong>Thông tin</strong> tab lists Funding beside the contract's other trading rules.</p>
+								</li>
+							</ul>
+						</figure>
+						<p class="cl-result__card nf-principle"><span class="nf-principle__key">Principle</span>Visibility teaches awareness. The modal teaches understanding. The history closes the loop.</p>
 					</div>
 				</section>
 
